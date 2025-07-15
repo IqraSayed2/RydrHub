@@ -1,0 +1,73 @@
+{% extends "base.html" %} 
+{% block title %}Models{% endblock %} 
+{% block content %}
+
+<section class="py-5">
+  <div class="container">
+    <div class="rh-models-section-header">
+      <span class="rh-models-tag">{{ category_name|upper }} OPTIONS</span>
+      <h2 class="rh-models-title">Available {{ category_name }} Models</h2>
+      <p class="rh-models-subtitle">
+        Browse through our selection of popular {{ category_name|lower }}
+        models, each offering comfort and efficiency.
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      {% if vehicles %} {% for vehicle in vehicles %}
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <div class="rh-model-card">
+          <div class="rh-model-card-image-container">
+            {% if vehicle.vehicle_image %}
+            <img
+              src="{{ vehicle.vehicle_image.url }}"
+              alt="{{ vehicle.make }} {{ vehicle.model_name }}"
+              class="rh-model-card-image"
+            />
+            {% else %} {# Fallback placeholder if no image is uploaded #} <img
+            src="https://placehold.co/400x250/{{ category_name|slice:":2"|upper
+            }}000/FFFFFF?text={{ vehicle.make }}+{{ vehicle.model_name }}"
+            alt="{{ vehicle.make }} {{ vehicle.model_name }}"
+            class="rh-model-card-image"> {% endif %}
+          </div>
+          <div class="rh-model-card-body">
+            <h3 class="rh-model-card-title">
+              {{ vehicle.make }} {{ vehicle.model_name }}
+            </h3>
+            <p class="rh-model-card-description">
+              {{ vehicle.main_description|default:"No description available." }}
+            </p>
+            <ul class="rh-model-features">
+              <li>
+                <i class="fas fa-user"></i> {{ vehicle.passengers }} seaters
+              </li>
+              {% if vehicle.fuel_type %}
+              <li><i class="fas fa-gas-pump"></i> {{ vehicle.fuel_type }}</li>
+              {% endif %}
+            </ul>
+            <div class="rh-model-price-section">
+              <div>
+                <div class="rh-model-price-label">Daily Rental</div>
+                <div class="rh-model-price-value">
+                  ₹ {{ vehicle.rental_rate_per_day }}
+                </div>
+              </div>
+              <a href="{% url 'rental_detail' category_slug=vehicle.category.category_slug vehicle_id=vehicle.id %}?pickup_location={{ pickup_location }}&return_location={{ return_location }}&pickup_datetime={{ pickup_datetime }}&return_datetime={{ return_datetime }}" class="btn rh-model-btn-select">
+                Select Model
+            </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %} {% else %}
+      <div class="col-12 text-center">
+        <p class="rh-models-subtitle">
+          No {{ category_name|lower }} models available at the moment. Please
+          check back later!
+        </p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,171 @@
+{% extends "base.html" %} 
+{% block title %}FAQs{% endblock %} 
+{% block content %}
+
+<div class="faq-body">
+  <div class="faq-container">
+    <header class="faq-header">
+      <h1>Frequently Asked Questions</h1>
+      <p>
+        Find answers to common questions about our car rental services. Can't
+        find what you're looking for? Contact our support team.
+      </p>
+    </header>
+
+    <div class="faq-accordion-wrapper">
+      <div class="faq-item">
+        <button class="faq-question-button" aria-expanded="false">
+          <i class="fas fa-file-alt faq-item-icon"></i>
+          What documents do I need to rent a car?
+          <i class="fas fa-chevron-down faq-arrow"></i>
+        </button>
+        <div class="faq-answer-content">
+          <p>
+            You need a valid driver's license held for at least 1 year, a credit
+            card in your name, and a form of identification (e.g., passport or
+            national ID). International customers may need an International
+            Driving Permit.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question-button" aria-expanded="false">
+          <i class="fas fa-user-alt faq-item-icon"></i>
+          What is the minimum age requirement?
+          <i class="fas fa-chevron-down faq-arrow"></i>
+        </button>
+        <div class="faq-answer-content">
+          <p>
+            The minimum age to rent a car is typically 21 years old. Drivers
+            under 25 may incur a young driver surcharge, which varies by
+            location and vehicle type.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question-button" aria-expanded="false">
+          <i class="fas fa-shield-alt faq-item-icon"></i>
+          Is insurance included in the rental price?
+          <i class="fas fa-chevron-down faq-arrow"></i>
+        </button>
+        <div class="faq-answer-content">
+          <p>
+            Basic third-party liability insurance is usually included. However,
+            we recommend reviewing our optional coverage plans for full
+            protection against damage, theft, and personal accident.
+          </p>
+        </div>
+      </div>
+
+      <button class="faq-question-button" aria-expanded="false">
+        <i class="fas fa-calendar-alt faq-item-icon"></i>
+        Can I modify or cancel my reservation?
+        <i class="fas fa-chevron-down faq-arrow"></i>
+      </button>
+      <div class="faq-answer-content">
+        <p>
+          Yes, you can modify or cancel your reservation online through our
+          'Manage Booking' section or by contacting our customer support team.
+          Cancellation policies and fees may apply depending on the time of
+          cancellation.
+        </p>
+      </div>
+
+      <button class="faq-question-button" aria-expanded="false">
+        <i class="fas fa-truck faq-item-icon"></i>
+        Do you offer delivery and pickup services?
+        <i class="fas fa-chevron-down faq-arrow"></i>
+      </button>
+      <div class="faq-answer-content">
+        <p>
+          Yes, we offer convenient delivery and pickup services at select
+          locations for an additional fee. Please check availability and charges
+          when making your reservation.
+        </p>
+      </div>
+
+      <button class="faq-question-button" aria-expanded="false">
+        <i class="fas fa-hourglass-half faq-item-icon"></i>
+        What happens if I return the car late?
+        <i class="fas fa-chevron-down faq-arrow"></i>
+      </button>
+      <div class="faq-answer-content">
+        <p>
+          Returning the car late may result in additional charges, often
+          equivalent to an extra day's rental. We recommend contacting us
+          immediately if you anticipate a late return.
+        </p>
+      </div>
+
+      <button class="faq-question-button" aria-expanded="false">
+        <i class="fas fa-road faq-item-icon"></i>
+        Are there mileage restrictions?
+        <i class="fas fa-chevron-down faq-arrow"></i>
+      </button>
+      <div class="faq-answer-content">
+        <p>
+          Most of our rentals include unlimited mileage. However, some special
+          vehicle categories or long-term rentals may have mileage caps. Please
+          refer to your rental agreement for specific details.
+        </p>
+      </div>
+
+      <button class="faq-question-button" aria-expanded="false">
+        <i class="fas fa-gas-pump faq-item-icon"></i>
+        What fuel policy do you follow?
+        <i class="fas fa-chevron-down faq-arrow"></i>
+      </button>
+      <div class="faq-answer-content">
+        <p>
+          We operate on a "full to full" fuel policy. This means you receive the
+          car with a full tank and are expected to return it with a full tank.
+          Otherwise, a refueling service charge will apply.
+        </p>
+      </div>
+
+      <button class="faq-question-button" aria-expanded="false">
+        <i class="fas fa-users faq-item-icon"></i>
+        Can I add additional drivers?
+        <i class="fas fa-chevron-down faq-arrow"></i>
+      </button>
+      <div class="faq-answer-content">
+        <p>
+          Yes, additional drivers can be added to the rental agreement at the
+          time of pickup, provided they meet the minimum age and document
+          requirements. An additional driver fee may apply.
+        </p>
+      </div>
+
+      <button class="faq-question-button" aria-expanded="false">
+        <i class="fas fa-car-crash faq-item-icon"></i>
+        What if the car breaks down during my rental?
+        <i class="fas fa-chevron-down faq-arrow"></i>
+      </button>
+      <div class="faq-answer-content">
+        <p>
+          In case of a breakdown or any mechanical issue, please contact our
+          24/7 roadside assistance hotline immediately. The number is provided
+          in your rental agreement and on our website.
+        </p>
+      </div>
+    </div>
+
+    <section class="faq-still-questions">
+      <div class="faq-still-questions-content">
+        <h2>Still Have Questions?</h2>
+        <p>
+          Our customer support team is available 24/7 to help you with any
+          questions or concerns.
+        </p>
+        <div class="faq-buttons-wrapper">
+          <a href="#" class="faq-button faq-button-primary">Contact Support</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+{% endblock content %}

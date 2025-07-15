@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking Cancellation Confirmation</title>
+</head>
+<body>
+    <p>Dear {{ booking.user.username }},</p>
+    <p>Your booking (ID: {{ booking.id }}) for the vehicle <strong>{{ booking.vehicle.make }} {{ booking.vehicle.model_name }}</strong> has been successfully cancelled.</p>
+    
+    <h3>Booking Details:</h3>
+    <ul>
+        <li><strong>Pickup Location:</strong> {{ booking.pickup_location }}</li>
+        <li><strong>Return Location:</strong> {{ booking.return_location }}</li>
+        <li><strong>Pickup Date & Time:</strong> {{ booking.pickup_datetime }}</li>
+        <li><strong>Return Date & Time:</strong> {{ booking.return_datetime }}</li>
+        <li><strong>Original Total Cost:</strong> ₹{{ booking.total_cost }}</li>
+        <li><strong>Cancellation Date:</strong> {{ booking.cancellation_date }}</li>
+    </ul>
+
+    <p>If you have any questions, please contact us.</p>
+    <p>Thank you,</p>
+    <p>RydrHub Team</p>
+</body>
+</html>

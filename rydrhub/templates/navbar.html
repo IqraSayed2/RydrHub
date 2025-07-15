@@ -1,0 +1,54 @@
+{% load static %}
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <img
+          src="https://placehold.co/30x30/4CAF50/FFFFFF?text=R"
+          alt="RydrHub Logo"
+        />
+        RydrHub
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'service' %}">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}#working">How it Works</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'faqs' %}">FAQs</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'my-bookings' %}">My Bookings</a>
+          </li>
+        </ul>
+        <div class="d-flex">
+        {% if request.user.is_authenticated %}
+        <a class="btn btn-outline-success me-2" href="#" role="button">{{request.user.username}} </a>
+        <a class="btn btn-outline-success me-2" href="{% url 'logout' %}" role="button" id="button">Logout</a>
+        {% else %}
+        <a class="btn btn-outline-success me-2" href="{% url 'login' %}" role="button">Login</a>
+        <a class="btn btn-success-gradient" href="{% url 'register' %}" role="button">Register</a>
+        {% endif %}
+        </div>
+        
+      </div>
+    </div>
+  </nav>

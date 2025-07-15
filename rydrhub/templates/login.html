@@ -1,0 +1,53 @@
+{% extends "base.html" %} 
+{% block title %}Login{% endblock %} 
+{% block content %}
+<body class="loginbody rh-login-dark-mode">
+  <div class="container rh-login-main-content">
+    <div class="rh-login-card">
+      <h2 class="rh-login-title">Login to RydrHub</h2>
+      <p class="rh-login-subtitle">
+        Access your account to manage your rentals
+      </p>
+
+      {% if message %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{message}}
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+      {% endif %}
+      <form method="post">
+        {% csrf_token %}
+        <div class="mb-3 text-start">
+          <input
+            type="text"
+            class="form-control rh-login-form-control"
+            id="rh-login-username"
+            name="username"
+            placeholder="Username"
+            required
+          />
+        </div>
+        <div class="mb-3 text-start">
+          <input
+            type="password"
+            class="form-control rh-login-form-control"
+            id="rh-login-password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <button type="submit" class="btn rh-login-button">Login</button>
+      </form>
+      <p class="rh-login-signup-link">
+        Don't have an account? <a href="#">Sign Up</a>
+      </p>
+    </div>
+    {% endblock %}
+  </div>
+</body>

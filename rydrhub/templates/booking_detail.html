@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}Booking Detail{% endblock title %}
+{% block content %}
+
+<div class="container my-5">
+    <div class="card bg-dark text-white shadow-lg border-secondary">
+        {# Custom header background color #}
+        <div class="card-header text-white" style="background-color: #1a202c;">
+            <h1 class="h4 mb-0">Booking Details for {{ booking.vehicle.model_name }} {{ vehicle.make }}</h1>
+        </div>
+        <div class="card-body">
+            {% if messages %}
+                <div class="mb-3">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="h5 mb-3 text-white-50">Booking Information</h2>
+                    <ul class="list-group list-group-flush bg-dark border-secondary mb-4">
+                        <li class="list-group-item bg-dark text-white"><strong>Booking ID:</strong> {{ booking.id }}</li>
+                        <li class="list-group-item bg-dark text-white"><strong>Status:</strong>
+                            {% if booking.status == 'Confirmed' %}
+                                <span class="badge bg-success text-white">{{ booking.status }}</span>
+                            {% elif booking.status == 'Pending' %}
+                                <span class="badge bg-warning text-dark">{{ booking.status }}</span>
+                            {% elif booking.status == 'Cancelled' %}
+                                <span class="badge bg-danger text-white">{{ booking.status }}</span>
+                            {% else %}
+                                <span class="badge bg-secondary text-white">{{ booking.status }}</span>
+                            {% endif %}
+                        </li>
+                        <li class="list-group-item bg-dark text-white"><strong>Pickup:</strong> {{ booking.pickup_location }} at {{ booking.pickup_datetime|date:"F d, Y H:i A" }}</li>
+                        <li class="list-group-item bg-dark text-white"><strong>Return:</strong> {{ booking.return_location }} at {{ booking.return_datetime|date:"F d, Y H:i A" }}</li>
+                        <li class="list-group-item bg-dark text-white"><strong>Total Cost:</strong> ₹{{ booking.total_cost }}</li>
+                        <li class="list-group-item bg-dark text-white"><strong>Payment Status:</strong>
+                            {% if booking.is_paid %}
+                                <span class="badge bg-success text-white">Paid</span>
+                            {% else %}
+                                <span class="badge bg-warning text-dark">Not Paid</span>
+                            {% endif %}
+                        </li>
+                        {% if booking.cancellation_date %}
+                            <li class="list-group-item bg-dark text-white"><strong>Cancellation Date:</strong> {{ booking.cancellation_date|date:"F d, Y H:i A" }}</li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h2 class="h5 mb-3 text-white-50">Vehicle Details</h2>
+                    <ul class="list-group list-group-flush bg-dark border-secondary mb-4">
+                        <li class="list-group-item bg-dark text-white"><strong>Model:</strong> {{ vehicle.model_name }}</li>
+                        <li class="list-group-item bg-dark text-white"><strong>Make:</strong> {{ vehicle.make }}</li>
+                        <li class="list-group-item bg-dark text-white"><strong>Vehicle Type:</strong> {{ vehicle.vehicle_type }}</li>
+                        <li class="list-group-item bg-dark text-white"><strong>Passengers:</strong> {{ vehicle.passengers }}</li>
+                        <li class="list-group-item bg-dark text-white"><strong>Suitcases:</strong> {{ vehicle.suitcases }}</li>
+                        <li class="list-group-item bg-dark text-white"><strong>Fuel Type:</strong> {{ vehicle.fuel_type }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="my-4 border-secondary">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="{% url 'service' %}" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left me-2"></i> Back to Services
+                </a>
+
+                {% if booking.status == 'Confirmed' or booking.status == 'Pending' %}
+                    <form action="{% url 'cancel_booking' booking.id %}" method="post" onsubmit="return confirm('Are you sure you want to cancel this booking? This action cannot be undone and a refund may be processed based on policy.');">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-times-circle me-2"></i> Cancel Booking
+                        </button>
+                    </form>
+                {% elif booking.status == 'Cancelled' %}
+                    <span class="text-danger fw-bold">This booking has been cancelled.</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

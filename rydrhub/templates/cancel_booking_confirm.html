@@ -1,0 +1,14 @@
+<h1>Confirm Cancellation</h1>
+<p>Are you sure you want to cancel the following booking?</p>
+
+<p><strong>Booking ID:</strong> {{ booking.id }}</p>
+<p><strong>Vehicle:</strong> {{ booking.vehicle.make }} {{ booking.vehicle.model_name }}</p>
+<p><strong>Pickup:</strong> {{ booking.pickup_datetime }}</p>
+<p><strong>Return:</strong> {{ booking.return_datetime }}</p>
+<p><strong>Total Cost:</strong> ₹{{ booking.total_cost }}</p>
+
+<form action="{% url 'cancel_booking' booking.id %}" method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, Cancel This Booking</button>
+    <a href="{% url 'booking_detail' booking.id %}" class="btn btn-secondary">No, Go Back</a>
+</form>

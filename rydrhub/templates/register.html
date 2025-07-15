@@ -1,0 +1,99 @@
+{% extends "base.html" %} 
+{% block title %}Register{% endblock title %} 
+{% block content %}
+
+<body class="signupbody rh-signup-dark-mode">
+  <div class="custom-signup-container">
+    {%if message %}
+    <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+      {{message}}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    {% endif %}
+
+    <div class="container rh-signup-main-content">
+      <div class="rh-signup-card">
+        <h2 class="rh-signup-title">Sign Up for RydrHub</h2>
+        <p class="rh-signup-subtitle">Join us and experience seamless rides!</p>
+
+        <form class="custom-signup-form" method="post">
+          {% csrf_token %}
+          <div class="mb-3 text-start">
+            <input
+              type="text"
+              class="form-control rh-signup-form-control"
+              id="rh-signup-username"
+              name="username"
+              placeholder="Choose a username"
+              required
+            />
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6 text-start">
+              <input
+                type="text"
+                class="form-control rh-signup-form-control"
+                id="rh-signup-first-name"
+                name="first_name"
+                placeholder="First Name"
+                required
+              />
+            </div>
+            <div class="col-md-6 text-start">
+              <input
+                type="text"
+                class="form-control rh-signup-form-control"
+                id="rh-signup-last-name"
+                name="last_name"
+                placeholder="Last Name"
+                required
+              />
+            </div>
+          </div>
+          <div class="mb-3 text-start">
+            <input
+              type="email"
+              class="form-control rh-signup-form-control"
+              id="rh-signup-email"
+              name="email" 
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+          <div class="mb-3 text-start">
+            <input
+              type="password"
+              class="form-control rh-signup-form-control"
+              id="rh-signup-password"
+              name="password"
+              placeholder="Create a password"
+              required
+            />
+          </div>
+          <div class="mb-3 text-start">
+            <input
+              type="password"
+              class="form-control rh-signup-form-control"
+              id="rh-signup-confirm-password"
+              name="confirm_password"
+              placeholder="Confirm your password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn rh-signup-button">Sign Up</button>
+        </form>
+
+        <p class="rh-signup-login-link">
+          Already have an account? <a href="#">Log In</a>
+        </p>
+      </div>
+    </div>
+
+    {% endblock %}
+  </div>
+</body>

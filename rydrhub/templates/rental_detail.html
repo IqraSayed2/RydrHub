@@ -1,0 +1,279 @@
+{% extends "base.html" %} 
+{% block title %}Model Details{% endblock %} 
+{% block content %}
+
+<!-- Main Content -->
+<div class="container rh-main-content">
+  <div class="row">
+    <!-- Left Column: Scrolling Content -->
+    <div class="col-lg-8">
+      <!-- Car Details Card -->
+      <div class="rh-card">
+        <div class="rh-car-details">
+          {% if vehicle.vehicle_image %}
+          <img
+            src="{{ vehicle.vehicle_image.url }}"
+            alt="{{ vehicle.make }} {{ vehicle.model_name }}"
+          />
+          {% else %}
+          <img
+            src="https://placehold.co/180x120/CCCCCC/333333?text={{ vehicle.make }}+{{ vehicle.model_name }}"
+            alt="{{ vehicle.make }} {{ vehicle.model_name }}"
+          />
+          {% endif %}
+          <div class="rh-car-info">
+            <h3>Selected Car: {{ vehicle.make }} {{ vehicle.model_name }}</h3>
+            <div class="rh-car-specs">
+              <ul>
+                {% if vehicle.main_description %}
+                <li>
+                  <i class="fas fa-car"></i> {{ vehicle.main_description }}
+                </li>
+                {% endif %}
+                <li>
+                  <i class="fas fa-car"></i> {{ vehicle.category.category_name}} | <i class="fas fa-chair"></i> AC |
+                  <i class="fas fa-user-friends"></i> {{ vehicle.passengers }}
+                  seats
+                </li>
+                {# Dynamically display description fields if they exist #} 
+                {% if vehicle.description1 %}
+                <li>
+                  <i class="fas fa-check-circle"></i> {{ vehicle.description1 }}
+                </li>
+                {% endif %} 
+                {% if vehicle.description2 %}
+                <li>
+                  <i class="fas fa-check-circle"></i> {{ vehicle.description2 }}
+                </li>
+                {% endif %} 
+                {% if vehicle.description3 %}
+                <li>
+                  <i class="fas fa-check-circle"></i> {{ vehicle.description3 }}
+                </li>
+                {% endif %} 
+                {% if vehicle.description4 %}
+                <li>
+                  <i class="fas fa-check-circle"></i> {{ vehicle.description4 }}
+                </li>
+                {% endif %} 
+                {% if vehicle.description5 %}
+                <li>
+                  <i class="fas fa-check-circle"></i> {{ vehicle.description5 }}
+                </li>
+                {% endif %}
+
+                <li>
+                  <i class="fas fa-gas-pump"></i> {{vehicle.fuel_type|default:"Fuel Type Not Specified" }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="rh-card-title">Rental details</h4>
+        {# Changed from 'Car details' #}
+        <div class="rh-driver-details">
+          <img
+            src="https://placehold.co/60x60/4CAF50/FFFFFF?text=R"
+            alt="RydrHub Icon"
+          />
+          {# Changed icon text #}
+          <div class="rh-driver-text">
+            <p>
+              Your <span>rental details and pickup instructions</span> will be
+              shared via <span>Email & SMS</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inclusions & Exclusions Card -->
+      <div class="rh-card">
+        <h4 class="rh-card-title">Rental Inclusions & Exclusions</h4>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item rh-list-group-item">
+            <i class="fas fa-check-circle"></i> Unlimited Kilometers
+          </li>
+          <li class="list-group-item rh-list-group-item">
+            <i class="fas fa-check-circle"></i> Standard Insurance
+          </li>
+          <li class="list-group-item rh-list-group-item">
+            <i class="fas fa-check-circle"></i> Fuel Policy (Full to Full)
+          </li>
+          {# Clarified fuel policy #}
+          <li class="list-group-item rh-list-group-item">
+            <i class="fas fa-check-circle"></i> Roadside Assistance
+          </li>
+        </ul>
+        <p class="rh-extra-charges">
+          <strong>Excess Mileage Charges (based on your usage)</strong>
+        </p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item rh-list-group-item">
+            <i class="fas fa-times-circle"></i> Late Return Fees
+          </li>
+          <li class="list-group-item rh-list-group-item">
+            <i class="fas fa-times-circle"></i> Damage beyond normal wear and
+            tear
+          </li>
+          <li class="list-group-item rh-list-group-item">
+            <i class="fas fa-times-circle"></i> Traffic violations/Fines
+          </li>
+        </ul>
+      </div>
+
+      <!-- Cancellation Policy Card -->
+      <div class="rh-card">
+        <h4 class="rh-card-title">Cancellation Policy</h4>
+        <div class="rh-cancellation-policy">
+          <p><strong>Free cancellation until 1 hour before pickup</strong></p>
+          <p class="text-danger">No refund after given time limit</p>
+        </div>
+      </div>
+
+      <!-- Other Information Card -->
+      <div class="rh-card">
+        <h4 class="rh-card-title">Important Information</h4>
+        {# Changed title #}
+        <div class="rh-other-info">
+          <ul>
+            <li>
+              <i class="fas fa-info-circle"></i> Driver's license and ID proof
+              required at pickup.
+            </li>
+            <li>
+              <i class="fas fa-info-circle"></i> Minimum rental age is 21 years.
+            </li>
+            <li>
+              <i class="fas fa-info-circle"></i> Vehicle inspection required at
+              pickup and return.
+            </li>
+            <li>
+              <i class="fas fa-info-circle"></i> Security deposit may be
+              required at pickup.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Sticky Traveller Details & Payment -->
+    <div class="col-lg-4">
+      <div class="rh-sticky-column">
+        <!-- Booking Form starts here -->
+        <form method="post" action="{% url 'book_car' vehicle.id %}">
+
+          {% csrf_token %}
+
+<!-- Traveller Details Card -->
+<div class="rh-card">
+  <h4 class="rh-card-title">Traveller Details</h4>
+  <input type="hidden" name="vehicle_id" value="{{ vehicle.id }}" />
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control rh-form-control"
+        id="fullName"
+        placeholder="Full Name"
+        name="fullname"
+        {# Prioritize initial_fullname (from GET) if available, otherwise request.user.first_name #}
+        value="{% if initial_fullname %}{{ initial_fullname }}{% elif request.user.is_authenticated %}{{ request.user.first_name }}{% endif %}"
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        type="tel"
+        class="form-control rh-form-control"
+        id="phone"
+        placeholder="Phone"
+        name="phone"
+        {# Pre-fill phone from GET, then from user profile if authenticated #}
+        value="{% if initial_phone %}{{ initial_phone }}{% elif request.user.is_authenticated and request.user.profile.phone %}{{ request.user.profile.phone }}{% endif %}"
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        type="email"
+        class="form-control rh-form-control"
+        id="email"
+        placeholder="Email"
+        name="email"
+        {# Prioritize initial_email (from GET) if available, otherwise request.user.email #}
+        value="{% if initial_email %}{{ initial_email }}{% elif request.user.is_authenticated %}{{ request.user.email }}{% endif %}"
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control rh-form-control"
+        id="pickupAddress"
+        placeholder="Pickup Address"
+        name="pickup_address"
+        value="{{ initial_pickup_location }}" {# Pre-fill from GET param #}
+      />
+    </div>
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control rh-form-control"
+        id="returnAddress"
+        placeholder="Return Address"
+        name="return_address"
+        value="{{ initial_return_location }}" {# Pre-fill from GET param #}
+      />
+    </div>
+    <div class="mb-3">
+      <label for="pickupDateTime" class="form-label rh-form-label"
+        >Pickup Date & Time</label
+      >
+      <input
+        type="datetime-local"
+        class="form-control rh-form-control"
+        id="pickupDateTime"
+        name="pickup_datetime"
+        value="{{ initial_pickup_datetime }}" {# Pre-fill from GET param #}
+      />
+    </div>
+    <div class="mb-3">
+      <label for="returnDateTime" class="form-label rh-form-label"
+        >Return Date & Time</label
+      >
+      <input
+        type="datetime-local"
+        class="form-control rh-form-control"
+        id="returnDateTime"
+        name="return_datetime"
+        value="{{ initial_return_datetime }}" {# Pre-fill from GET param #}
+      />
+    </div>
+
+          <!-- Payment Section -->
+          <div class="rh-card">
+            <h4 class="rh-card-title">Payment</h4>
+            <div class="rh-payment-summary">
+              <div class="rh-payment-line">
+                <span>Daily Rental Rate:</span>
+                <span>₹{{ vehicle.rental_rate_per_day }}</span>
+              </div>
+              <div class="rh-payment-line">
+                <span>Estimated Total:</span>
+                <span
+                  id="estimatedTotal"
+                  data-dailyrate="{{ vehicle.rental_rate_per_day }}"
+                  >₹{{ vehicle.rental_rate_per_day }}</span
+                >
+              </div>
+              <div class="form-check rh-payment-option">
+              </div>
+              <button type="submit" class="btn rh-btn-confirm">
+                Pay & Confirm
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

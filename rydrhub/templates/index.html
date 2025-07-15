@@ -1,0 +1,577 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RydrHub - Your Premium Ride Partner</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Google Fonts - Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'rydrhub.css' %}" />
+  </head>
+
+  <body class="indexbody">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">
+          <img
+            src="https://placehold.co/30x30/4CAF50/FFFFFF?text=R"
+            alt="RydrHub Logo"
+          />
+          RydrHub
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'service' %}">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'home' %}#working">How it Works</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'faqs' %}">FAQs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'my-bookings' %}">My Bookings</a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            {% if request.user.is_authenticated %}
+            <a class="btn btn-outline-success me-2" href="#" role="button"
+              >{{request.user.username}}
+            </a>
+            <a
+              class="btn btn-outline-success me-2"
+              href="{% url 'logout' %}"
+              role="button"
+              id="button"
+              >Logout</a
+            >
+            {% else %}
+            <a
+              class="btn btn-outline-success me-2"
+              href="{% url 'login' %}"
+              role="button"
+              >Login</a
+            >
+            <a
+              class="btn btn-success-gradient"
+              href="{% url 'register' %}"
+              role="button"
+              >Register</a
+            >
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <!-- Background Image -->
+      <img
+        src="https://placehold.co/1920x1080/1a202c/FFFFFF?text=Luxury+Car"
+        alt="Luxury Car Background"
+        class="hero-bg-image"
+      />
+
+      <div class="container hero-content">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <p class="text-green fw-bold mb-3">
+              <i class="fas fa-star me-2"></i>Premium Ride Experience
+            </p>
+            <h1 class="hero-title">Your Premium <br />Car Rental Partner</h1>
+            <p class="hero-subtitle">
+              Experience luxury car rentals with our premium fleet. Drive on
+              your terms, with flexible booking and exceptional service.
+            </p>
+
+            <div class="row mt-4">
+              <div class="col-md-4">
+                <div class="feature-card">
+                  <div class="icon"><i class="fas fa-clock"></i></div>
+                  <div class="title">Flexible Pickup/Return</div>
+                  <div class="description">Always Available</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="feature-card">
+                  <div class="icon"><i class="fas fa-car"></i></div>
+                  <div class="title">Wide Vehicle Selection</div>
+                  <div class="description">Luxury Vehicles</div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="feature-card">
+                  <div class="icon"><i class="fas fa-globe"></i></div>
+                  <div class="title">Extensive Pickup Locations</div>
+                  <div class="description">Everywhere</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 d-flex justify-content-end">
+            <!-- Booking Form starts here -->
+            <div class="booking-form-container w-100">
+              <h2 class="form-title">Book Your Premium Ride</h2>
+              <p class="form-subtitle">Experience luxury transportation</p>
+
+              <form method="get" action="{% url 'service' %}"> {# Changed method to GET and action to service #}
+                <div class="mb-3">
+                  <label for="pickupLocation" class="form-label">Pickup Location</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-dark"
+                    id="pickupLocation"
+                    placeholder="Enter pickup location"
+                    name="pickup_location" {# ADDED NAME ATTRIBUTE #}
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="returnLocation" class="form-label">Return Location</label> {# Corrected id for consistency #}
+                  <input
+                    type="text"
+                    class="form-control form-control-dark"
+                    id="returnLocation" {# Corrected id for consistency #}
+                    placeholder="Enter return location"
+                    name="return_location" {# ADDED NAME ATTRIBUTE #}
+                  />
+                </div>
+
+                <div class="row mb-4">
+                  <div class="col-md-6">
+                    <label for="pickupDatetime" class="form-label">Pickup Date & Time</label>
+                    <div class="input-group">
+                      <input
+                        type="datetime-local"
+                        class="form-control form-control-dark"
+                        id="pickupDatetime"
+                        name="pickup_datetime" {# ADDED NAME ATTRIBUTE #}
+                        style="color: #a0a0a0; opacity: 1"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="returnDatetime" class="form-label">Return Date & Time</label>
+                    <div class="input-group">
+                      <input
+                        type="datetime-local"
+                        class="form-control form-control-dark"
+                        id="returnDatetime"
+                        name="return_datetime" {# ADDED NAME ATTRIBUTE #}
+                        style="color: #a0a0a0; opacity: 1"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn btn-book-ride">
+                  Search Available Cars
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fleet Container -->
+    <section class="fleet-container">
+      <div class="rydrhub-fleet-explore-section">
+        <h2 class="rydrhub-fleet-explore-heading">
+          Explore Our Complete Fleet
+        </h2>
+        <p class="rydrhub-fleet-explore-description">
+          From economy to exotic supercars, discover over 500 premium vehicles
+          available for rent across all our locations.
+        </p>
+        <a href="#" class="rydrhub-btn-gradient">
+          View All Vehicles <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Premium Features Section -->
+    <section class="section-container-features">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="tag-button">
+            <i class="fas fa-check-circle"></i> Why Choose RydrHub
+          </span>
+          <h2 class="section-title-features">
+            Premium Features for
+            <span class="highlight">Exceptional Experience</span>
+          </h2>
+          <p class="section-description-features">
+            We're committed to providing you with the safest, most comfortable,
+            and reliable transportation experience possible
+          </p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <!-- Feature Box 1: Safe & Secure -->
+          <div class="col-lg-4 col-md-6 col-sm-10">
+            <div class="feature-box">
+              <div class="feature-icon-placeholder icon-bg-light-green"><i class="fas fa-shield-alt"></i></div>
+              <h3 class="feature-title-box">Safe & Secure</h3>
+              <p class="feature-description-box">
+                All drivers are verified with background checks and vehicles
+                undergo regular safety inspections
+              </p>
+            </div>
+          </div>
+
+          <!-- Feature Box 2: 24/7 Availability -->
+          <div class="col-lg-4 col-md-6 col-sm-10">
+            <div class="feature-box">
+              <div class="feature-icon-placeholder icon-bg-light-blue"><i class="fas fa-clock"></i></div>
+              <h3 class="feature-title-box">24/7 Availability</h3>
+              <p class="feature-description-box">
+                Round-the-clock service with average pickup time of just 3
+                minutes in urban areas
+              </p>
+            </div>
+          </div>
+
+          <!-- Feature Box 3: Real-time Tracking -->
+          <div class="col-lg-4 col-md-6 col-sm-10">
+            <div class="feature-box">
+              <div class="feature-icon-placeholder icon-bg-light-purple"><i class="fas fa-map-marker-alt"></i></div>
+              <h3 class="feature-title-box">Real-time Tracking</h3>
+              <p class="feature-description-box">
+                Live GPS tracking with ETA updates and location sharing for
+                complete peace of mind
+              </p>
+            </div>
+          </div>
+
+          <!-- Feature Box 4: Cashless Payments -->
+          <div class="col-lg-4 col-md-6 col-sm-10">
+            <div class="feature-box">
+              <div class="feature-icon-placeholder icon-bg-light-orange"><i class="fas fa-credit-card"></i></div>
+              <h3 class="feature-title-box">Cashless Payments</h3>
+              <p class="feature-description-box">
+                Secure digital payments with multiple options including cards,
+                wallets, and crypto
+              </p>
+            </div>
+          </div>
+
+          <!-- Feature Box 5: 24/7 Support -->
+          <div class="col-lg-4 col-md-6 col-sm-10">
+            <div class="feature-box">
+              <div class="feature-icon-placeholder icon-bg-light-teal"><i class="fas fa-comments"></i></div>
+              <h3 class="feature-title-box">24/7 Support</h3>
+              <p class="feature-description-box">
+                Dedicated customer support team available via chat, phone, and
+                email anytime
+              </p>
+            </div>
+          </div>
+
+          <!-- Feature Box 6: Rated Drivers -->
+          <div class="col-lg-4 col-md-6 col-sm-10">
+            <div class="feature-box">
+              <div class="feature-icon-placeholder icon-bg-light-yellow"><i class="fas fa-star"></i></div>
+              <h3 class="feature-title-box">Rated Drivers</h3>
+              <p class="feature-description-box">
+                All drivers maintain 4.8+ ratings with continuous training and
+                performance monitoring
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <span class="cta-tag">
+            <i class="fas fa-star"></i> Ready to Experience Premium?
+          </span>
+          <h2 class="cta-title">
+            Join Over 10 Million
+            <span class="highlight">Satisfied Customers</span>
+          </h2>
+          <p class="cta-description">
+            Experience the difference with RydrHub's premium transportation
+            services. Your journey, our commitment.
+          </p>
+          <button class="btn btn-cta-ride">Book Your First Premium Ride</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- How RydrHub Works Section -->
+    <section class="how-it-works-section" id="working">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="how-it-works-tag">
+            <i class="fas fa-sync-alt"></i> Simple Process
+          </span>
+          <h2 class="how-it-works-title">
+            How RydrHub <span class="highlight">Works for You</span>
+          </h2>
+          <p class="how-it-works-description">
+            Renting a car with RydrHub is simple and straightforward. Follow
+            these easy steps to get on the road.
+          </p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <!-- Step 1: Search & Select -->
+          <div class="col-lg-3 col-md-6 col-sm-10 position-relative">
+            <div class="step-card">
+              <div class="step-number-circle">01</div>
+              <div class="step-icon"><i class="fas fa-search"></i></div>
+              <h3 class="step-title">Search & Select</h3>
+              <p class="step-description">
+                Enter your pickup/return locations and dates to browse our wide
+                selection of vehicles.
+              </p>
+            </div>
+            <div class="d-none d-lg-block step-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <!-- Step 2: Book & Confirm -->
+          <div class="col-lg-3 col-md-6 col-sm-10 position-relative">
+            <div class="step-card">
+              <div class="step-number-circle">02</div>
+              <div class="step-icon"><i class="fas fa-calendar-check"></i></div>
+              <h3 class="step-title">Book & Confirm</h3>
+              <p class="step-description">
+                Choose your preferred model, review details, and confirm your
+                booking with secure payment.
+              </p>
+            </div>
+            <div class="d-none d-lg-block step-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <!-- Step 3: Pick Up & Drive -->
+          <div class="col-lg-3 col-md-6 col-sm-10 position-relative">
+            <div class="step-card">
+              <div class="step-number-circle">03</div>
+              <div class="step-icon"><i class="fas fa-key"></i></div>
+              <h3 class="step-title">Pick Up & Drive</h3>
+              <p class="step-description">
+                Collect your car from the designated location and enjoy your
+                journey on your own terms.
+              </p>
+            </div>
+            <div class="d-none d-lg-block step-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <!-- Step 4: Return & Relax -->
+          <div class="col-lg-3 col-md-6 col-sm-10 position-relative">
+            <div class="step-card">
+              <div class="step-number-circle">04</div>
+              <div class="step-icon"><i class="fas fa-undo-alt"></i></div>
+              <h3 class="step-title">Return & Relax</h3>
+              <p class="step-description">
+                Return the vehicle to the specified location. We'll handle the
+                rest!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trusted by Millions Section -->
+    <section class="trusted-section">
+      <div class="container">
+        <div class="trusted-card-container">
+          <h2 class="trusted-title">Trusted by Millions Worldwide</h2>
+          <p class="trusted-subtitle">
+            Join our growing community of satisfied customers
+          </p>
+          <div class="row justify-content-center">
+            <div class="col-6 col-md-3">
+              <div class="stat-item">
+                <div class="stat-icon users"><i class="fas fa-users"></i></div>
+                <div class="stat-value">10M+</div>
+                <div class="stat-label">Happy Customers</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="stat-item">
+                <div class="stat-icon car"><i class="fas fa-car-side"></i></div>
+                <div class="stat-value">50K+</div>
+                <div class="stat-label">Rides Completed</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="stat-item">
+                <div class="stat-icon star">
+                  <i class="fas fa-star"></i> 4.9
+                </div>
+                <div class="stat-value"></div>
+                <div class="stat-label">Average Rating</div>
+              </div>
+            </div>
+            <div class="col-6 col-md-3">
+              <div class="stat-item">
+                <div class="stat-icon driver">
+                  <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="stat-value">500+</div>
+                <div class="stat-label">Professional Drivers</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <a class="footer-brand" href="#">
+              <img
+                src="https://placehold.co/35x35/4CAF50/FFFFFF?text=R"
+                alt="RydrHub Logo"
+              />
+              RydrHub
+            </a>
+            <p class="footer-description">
+              Your premium ride partner, providing safe, comfortable, and
+              reliable transportation services 24/7. Experience the difference
+              with RydrHub.
+            </p>
+            <div class="d-flex flex-wrap mb-3">
+              <span class="footer-badge"
+                ><i class="fas fa-trophy"></i> Best Cab Service 2024</span
+              >
+              <span class="footer-badge"
+                ><i class="fas fa-star"></i> 4.9 Rating</span
+              >
+            </div>
+            <!-- Removed social media icons as requested -->
+          </div>
+          <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+            <h5 class="footer-links-title">Quick Links</h5>
+            <ul class="footer-links">
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Features</a></li>
+              <li><a href="#">How it Works</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
+            <h5 class="footer-links-title">Support</h5>
+            <ul class="footer-links">
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Safety Guidelines</a></li>
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Driver Application</a></li>
+              <li><a href="#">Contact Support</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4">
+            <h5 class="footer-links-title">Contact Us</h5>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="contact-card">
+                  <div class="contact-icon-wrapper">
+                    <i class="fas fa-phone-alt"></i>
+                  </div>
+                  <div class="contact-info">
+                    <strong>Call Us</strong>
+                    <span>+1 (555) 123-4567</span>
+                    <span>Available 24/7 for support</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="contact-card">
+                  <div class="contact-icon-wrapper">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="contact-info">
+                    <strong>Email Us</strong>
+                    <span>support@rydrhub.com</span>
+                    <span>We'll respond within 2 hours</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="contact-card">
+                  <div class="contact-icon-wrapper">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="contact-info">
+                    <strong>Visit Us</strong>
+                    <span>123 Business Street</span>
+                    <span>City, State 12345</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center"
+        >
+          <div class="mb-2 mb-md-0">
+            &copy; 2025 RydrHub. All rights reserved. Made with
+            <i class="fas fa-heart" style="color: #e74c3c"></i> for better
+            transportation.
+          </div>
+          <div class="footer-links-bottom">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Cookies</a>
+            <a href="#">Accessibility</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+{% extends "base.html" %} 
+{% block title %}Contact{% endblock %} 
+{% block content %}
+
+ <div class="contact-form-body">
+    <div class="contact-form-container">
+      <div class="contact-form-card contact-form-message-card">
+        <div class="contact-form-card-header">
+          <i class="fas fa-paper-plane contact-form-icon"></i>
+          <h2>Send Us a Message</h2>
+        </div>
+        <form class="contact-form-grid">
+          <div class="contact-form-input-group">
+            <label for="contact-form-name">Name</label>
+            <input
+              type="text"
+              id="contact-form-name"
+              placeholder="Your full name"
+              required
+            />
+          </div>
+          <div class="contact-form-input-group">
+            <label for="contact-form-email">Email</label>
+            <input
+              type="email"
+              id="contact-form-email"
+              placeholder="your.email@example.com"
+              required
+            />
+          </div>
+          <div class="contact-form-input-group">
+            <label for="contact-form-phone">Phone</label>
+            <input
+              type="tel"
+              id="contact-form-phone"
+              placeholder="+1 (555) 123-4567"
+            />
+          </div>
+          <div class="contact-form-input-group">
+            <label for="contact-form-subject">Subject</label>
+            <select id="contact-form-subject" required>
+              <option value="">Select a subject</option>
+              <option value="new_booking_inquiry">New Booking Inquiry</option>
+              <option value="customer_support">Customer Support</option>
+              <option value="billing_question">Billing Question</option>
+              <option value="feedback_suggestions">
+                Feedback & Suggestions
+              </option>
+              <option value="business_partnership">Business Partnership</option>
+              <option value="others">Other</option>
+            </select>
+          </div>
+          <div class="contact-form-input-group contact-form-full-width">
+            <label for="contact-form-message">Message</label>
+            <textarea
+              id="contact-form-message"
+              rows="6"
+              placeholder="Please provide details about your inquiry..."
+              required
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="contact-form-submit-button contact-form-full-width"
+          >
+            <i class="fas fa-paper-plane contact-form-button-icon"></i>
+            Send Message
+          </button>
+        </form>
+      </div>
+
+      <div class="contact-form-sidebar">
+        <div class="contact-form-card contact-form-quick-contact-card">
+          <div class="contact-form-card-header">
+            <i class="fas fa-headset contact-form-icon"></i>
+            <h2>Quick Contact</h2>
+          </div>
+          <div class="contact-form-contact-item">
+            <i class="fas fa-phone-alt contact-form-green-icon"></i>
+            <div>
+              <div class="contact-form-contact-label">Emergency Hotline</div>
+              <div class="contact-form-contact-value">+1 (555) 911-HELP</div>
+              <div class="contact-form-contact-subtext">
+                24/7 Roadside Assistance
+              </div>
+            </div>
+          </div>
+          <div class="contact-form-contact-item">
+            <i class="fas fa-envelope contact-form-green-icon"></i>
+            <div>
+              <div class="contact-form-contact-label">Email Support</div>
+              <a
+                href="mailto:support@eliterentals.com"
+                class="contact-form-email-link"
+                >support@rydrhub.com</a
+              >
+              <div class="contact-form-contact-subtext">
+                Response within 2 hours
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-card contact-form-hours-card">
+          <div class="contact-form-card-header">
+            <i class="far fa-clock contact-form-icon"></i>
+            <h2>Business Hours</h2>
+          </div>
+          <div class="contact-form-hours-item">
+            <div class="contact-form-hours-label">Customer Service</div>
+            <div class="contact-form-hours-value contact-form-green-text">
+              24/7
+            </div>
+          </div>
+          <div class="contact-form-hours-item">
+            <div class="contact-form-hours-label">Phone Support</div>
+            <div class="contact-form-hours-value contact-form-green-text">
+              24/7
+            </div>
+          </div>
+          <div class="contact-form-hours-item">
+            <div class="contact-form-hours-label">Office Hours</div>
+            <div class="contact-form-hours-value">Mon-Fri 8AM-6PM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock content %}

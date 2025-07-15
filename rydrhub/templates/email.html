@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Confirmation</title>
+</head>
+<body>
+    <h2>Booking Confirmed</h2>
+    <p>Hi {{ booking.user.first_name }},</p>
+    <p>Your booking for {{ booking.vehicle.make }} {{ booking.vehicle.model_name }} has been confirmed.</p>
+    <p><strong>Pickup:</strong> {{ booking.pickup_datetime }} from {{ booking.pickup_location }}</p>
+    <p><strong>Return:</strong> {{ booking.return_datetime }} at {{ booking.return_location }}</p>
+    <p><strong>Total Cost:</strong> ₹{{ booking.total_cost }}</p>
+    <p>Thank you for using RydrHub!</p>
+</body>
+</html>
