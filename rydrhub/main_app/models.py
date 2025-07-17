@@ -2,8 +2,6 @@ from django.db import models
 from autoslug import AutoSlugField
 from django.contrib.auth.models import User
 from django.utils import timezone
-import random # Add this import
-import string # Add this import
 from django.db.models import Max
 
 # Create your models here.
@@ -54,16 +52,17 @@ class RentalBooking(models.Model):
     total_cost = models.DecimalField(max_digits=10, decimal_places=2)
     booking_date = models.DateTimeField(auto_now_add=True)
     is_paid = models.BooleanField(default=False)
-    payment_id = models.CharField(max_length=255, blank=True, null=True)  
+    payment_id = models.CharField(max_length=255, blank=True, null=True) 
+    cancellation_date = models.DateTimeField(blank=True, null=True) 
     BOOKING_STATUS_CHOICES = [
-        ('pending', 'Pending'),
-        ('upcoming', 'Upcoming'), 
-        ('active', 'Active'),
-        ('completed', 'Completed'),
-        ('cancelled', 'Cancelled'), 
-        ('confirmed', 'Confirmed'), 
+        ('Pending', 'Pending'),
+        ('Upcoming', 'Upcoming'), 
+        ('Active', 'Active'),
+        ('Completed', 'Completed'),
+        ('Cancelled', 'Cancelled'), 
+        ('Confirmed', 'Confirmed'), 
     ]
-    status = models.CharField(max_length=20, choices=BOOKING_STATUS_CHOICES, default='pending')
+    status = models.CharField(max_length=20, choices=BOOKING_STATUS_CHOICES, default='Pending')
     traveler_full_name = models.CharField(max_length=255, blank=True, null=True)
     traveler_phone = models.CharField(max_length=20, blank=True, null=True)
     traveler_email = models.EmailField(blank=True, null=True)

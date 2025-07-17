@@ -1,7 +1,142 @@
 {% extends "base.html" %} 
+{% load static %} 
 {% block title %}My Bookings{% endblock %} 
 {% block content %}
 
-<h1>My booking history page</h1>
+<div class="mybookingbody">
+  <div class="mybookings-container">
+    <h1 class="mybookings-title">My Bookings</h1>
+    <p class="mybookings-subtitle">Manage your current and past car rentals</p>
+
+    <div class="mybookings-tabs">
+      <button class="mybookings-tab active" onclick="switchTab('current')">
+        Current Bookings ({{ current_count }})
+      </button>
+      <button class="mybookings-tab" onclick="switchTab('history')">
+        Booking History ({{ history_count }})
+      </button>
+    </div>
+
+    <!-- Current Bookings Tab -->
+    <div id="current" class="mybookings-tab-content active">
+      {% for booking in current_bookings %}
+      <div class="mybookings-booking-card">
+        <div class="mybookings-booking-header">
+          <div class="mybookings-car-info">
+            <div class="mybookings-car-image">
+                <img src="{{ booking.vehicle.vehicle_image.url }}" alt="Car image" height="100px" width="100px">
+            </div>
+            <div class="mybookings-car-details">
+              <h3>{{ booking.vehicle.make }} {{ booking.vehicle.model_name }}</h3>
+              <div class="mybookings-car-type">{{ booking.vehicle.category }}</div>
+              <div class="mybookings-booking-id">
+                Booking ID: {{ booking.id }}
+              </div>
+            </div>
+          </div>
+          <div
+            class="mybookings-status-badge mybookings-status-{{ booking.status|lower }}"
+          >
+            <div class="mybookings-status-icon"></div>
+            {{ booking.status|capfirst }}
+          </div>
+        </div>
+        <div class="mybookings-booking-details">
+          <div class="mybookings-detail-item">
+            <i>📅</i>
+            <span>
+                {{ booking.pickup_datetime}} - {{booking.return_datetime}}
+            </span>
+          </div>
+          <div class="mybookings-detail-item">
+            <i>📍</i>
+            <span>
+                {{ booking.pickup_location }} - {{ booking.return_location}}
+            </span>
+          </div>
+          <div class="mybookings-detail-item">
+            <i>⏰</i>
+            <span>{{ booking.duration_days }} days</span>
+          </div>
+        </div>
+        <div class="mybookings-booking-footer">
+          <div>
+            <div class="mybookings-price">₹{{ booking.total_cost }}</div>
+            <div class="mybookings-price-label">Total Amount</div>
+          </div>
+          <a
+            href="{% url 'booking_detail' booking.id %}"
+            class="mybookings-view-details-btn"
+          >
+            View Details
+          </a>
+        </div>
+      </div>
+      {% empty %}
+      <p>No current bookings found.</p>
+      {% endfor %}
+    </div>
+
+    <!-- Booking History Tab -->
+    <div id="history" class="mybookings-tab-content">
+      {% for booking in historical_bookings %}
+      <div class="mybookings-booking-card">
+        <div class="mybookings-booking-header">
+          <div class="mybookings-car-info">
+            <div class="mybookings-car-image">
+                <img src="{{ booking.vehicle.vehicle_image.url }}" alt="Car image" height="100px" width="100px">
+            </div>
+            <div class="mybookings-car-details">
+              <h3>{{ booking.vehicle.make }} {{ booking.vehicle.model_name }}</h3>
+              <div class="mybookings-car-type">{{ booking.vehicle.category }}</div>
+              <div class="mybookings-booking-id">
+                Booking ID: {{ booking.id }}
+              </div>
+            </div>
+          </div>
+          <div
+            class="mybookings-status-badge mybookings-status-{{ booking.status|lower }}"
+          >
+            <div class="mybookings-status-icon"></div>
+            {{ booking.status|capfirst }}
+          </div>
+        </div>
+        <div class="mybookings-booking-details">
+          <div class="mybookings-detail-item">
+            <i>📅</i>
+            <span>
+                {{ booking.pickup_datetime}} - {{booking.return_datetime}}
+            </span>
+          </div>
+          <div class="mybookings-detail-item">
+            <i>📍</i>
+            <span>
+                {{ booking.pickup_location }} - {{ booking.return_location}}</span>
+          </div>
+          <div class="mybookings-detail-item">
+            <i>⏰</i>
+            <span>{{ booking.duration_days }} days</span>
+          </div>
+        </div>
+        <div class="mybookings-booking-footer">
+          <div>
+            <div class="mybookings-price">₹{{ booking.total_cost }}</div>
+            <div class="mybookings-price-label">Total Amount</div>
+          </div>
+          <a
+            href="{% url 'booking_detail' booking.id %}"
+            class="mybookings-view-details-btn"
+          >
+            View Details
+          </a>
+        </div>
+      </div>
+      {% empty %}
+      <p>No past bookings found.</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
 
 {% endblock content %}

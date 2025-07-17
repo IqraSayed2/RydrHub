@@ -28,7 +28,7 @@ class VehicleAdmin(admin.ModelAdmin):
 
 
 class RentalBookingAdmin(admin.ModelAdmin):
-    list_display = ('user', 'vehicle', 'pickup_datetime', 'return_datetime', 'pickup_location', 'return_location', 'total_cost','booking_date', 'is_paid','payment_id', 'status','traveler_full_name', 'traveler_phone', 'traveler_email')
+    list_display = ('user', 'vehicle', 'pickup_datetime', 'return_datetime', 'pickup_location', 'return_location', 'total_cost','booking_date', 'is_paid','payment_id','cancellation_date', 'status','traveler_full_name', 'traveler_phone', 'traveler_email')
 
     readonly_fields = ('booking_date', 'payment_id')
 
@@ -40,8 +40,11 @@ class RentalBookingAdmin(admin.ModelAdmin):
             'fields': ('pickup_location', 'return_location', 'pickup_datetime', 'return_datetime')
         }),
         ('Payment Details', {
-            'fields': ('total_cost', 'is_paid', 'status', 'payment_id', 'booking_date')
+            'fields': ('total_cost', 'is_paid', 'status', 'payment_id', 'booking_date','cancellation_date')
         }),
+        ('Travellers Details',{
+            'fields':('traveler_full_name', 'traveler_phone', 'traveler_email')
+        })
     )
 
 

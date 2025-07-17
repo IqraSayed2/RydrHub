@@ -76,3 +76,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+//------------------------------------
+
+function switchTab(tabName) {
+  const tabContents = document.querySelectorAll(".mybookings-tab-content");
+  tabContents.forEach((content) => content.classList.remove("active"));
+
+  const tabs = document.querySelectorAll(".mybookings-tab");
+  tabs.forEach((tab) => tab.classList.remove("active"));
+
+  document.getElementById(tabName).classList.add("active");
+  event.target.classList.add("active");
+}

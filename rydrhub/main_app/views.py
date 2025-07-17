@@ -107,7 +107,7 @@ def book_car(request, vehicle_id):
             return_datetime=return_datetime,
             total_cost=total_cost,
             is_paid=False,
-            status="pending",  
+            status="Pending",  
             traveler_full_name=traveler_full_name,
             traveler_phone=traveler_phone,
             traveler_email=traveler_email
@@ -272,4 +272,25 @@ def cancel_booking(request, booking_id):
         
         return redirect('booking_detail', booking_id=booking.id)
 
-    return render(request, 'cancel_booking_confirm.html', {'booking': booking})
+    return redirect('booking_detail', booking_id=booking.id)
+
+
+@login_required(login_url='/login')
+def my_bookings_view(request):
+    all_bookings = RentalBooking.objects.filter(user=request.user).order_by('-booking_date')
+    
+    current_bookings = all_bookings.filter(status__in=['pending', 'confirmed', 'upcoming', 'active'])
+    historical_bookings = all_bookings.filter(status__in=['completed', 'cancelled'])
+    
+    for booking in all_bookings:
+        duration = booking.return_datetime - booking.pickup_datetime
+        booking.duration_days = max(1, duration.days + (1 if duration.seconds > 0 else 0))
+    
+    context = {
+        'current_bookings': current_bookings,
+        'historical_bookings': historical_bookings,
+        'current_count': current_bookings.count(),
+        'history_count': historical_bookings.count(),
+    }
+    
+    return render(request, 'my_bookings.html', context)
