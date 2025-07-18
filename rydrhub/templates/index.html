@@ -147,7 +147,7 @@
               <h2 class="form-title">Book Your Premium Ride</h2>
               <p class="form-subtitle">Experience luxury transportation</p>
 
-              <form method="get" action="{% url 'service' %}"> {# Changed method to GET and action to service #}
+              <form method="get" action="{% url 'service' %}"> 
                 <div class="mb-3">
                   <label for="pickupLocation" class="form-label">Pickup Location</label>
                   <input
@@ -155,17 +155,19 @@
                     class="form-control form-control-dark"
                     id="pickupLocation"
                     placeholder="Enter pickup location"
-                    name="pickup_location" {# ADDED NAME ATTRIBUTE #}
+                    name="pickup_location" 
+                    required
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="returnLocation" class="form-label">Return Location</label> {# Corrected id for consistency #}
+                  <label for="returnLocation" class="form-label">Return Location</label> 
                   <input
                     type="text"
                     class="form-control form-control-dark"
-                    id="returnLocation" {# Corrected id for consistency #}
+                    id="returnLocation" 
                     placeholder="Enter return location"
-                    name="return_location" {# ADDED NAME ATTRIBUTE #}
+                    name="return_location" 
+                    required
                   />
                 </div>
 
@@ -177,8 +179,9 @@
                         type="datetime-local"
                         class="form-control form-control-dark"
                         id="pickupDatetime"
-                        name="pickup_datetime" {# ADDED NAME ATTRIBUTE #}
+                        name="pickup_datetime" 
                         style="color: #a0a0a0; opacity: 1"
+                        required
                       />
                     </div>
                   </div>
@@ -189,8 +192,9 @@
                         type="datetime-local"
                         class="form-control form-control-dark"
                         id="returnDatetime"
-                        name="return_datetime" {# ADDED NAME ATTRIBUTE #}
+                        name="return_datetime" 
                         style="color: #a0a0a0; opacity: 1"
+                        required
                       />
                     </div>
                   </div>
@@ -216,7 +220,7 @@
           From economy to exotic supercars, discover over 500 premium vehicles
           available for rent across all our locations.
         </p>
-        <a href="#" class="rydrhub-btn-gradient">
+        <a href="{% url 'service' %}" class="rydrhub-btn-gradient">
           View All Vehicles <i class="fas fa-arrow-right"></i>
         </a>
       </div>
@@ -311,26 +315,6 @@
               </p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Call to Action Section -->
-    <section class="cta-section">
-      <div class="container">
-        <div class="cta-card">
-          <span class="cta-tag">
-            <i class="fas fa-star"></i> Ready to Experience Premium?
-          </span>
-          <h2 class="cta-title">
-            Join Over 10 Million
-            <span class="highlight">Satisfied Customers</span>
-          </h2>
-          <p class="cta-description">
-            Experience the difference with RydrHub's premium transportation
-            services. Your journey, our commitment.
-          </p>
-          <button class="btn btn-cta-ride">Book Your First Premium Ride</button>
         </div>
       </div>
     </section>

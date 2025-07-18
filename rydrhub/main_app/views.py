@@ -30,7 +30,7 @@ def service_view(request):
     }
     return render(request, 'service.html', context)
 
-
+@login_required(login_url='/login')
 def vehicle_list_by_category(request, category_slug):
     category = get_object_or_404(Category, category_slug=category_slug)
     category_name = category.category_name
@@ -49,7 +49,7 @@ def vehicle_list_by_category(request, category_slug):
     }
     return render(request, 'vehicle_list.html', context)
 
-
+@login_required(login_url='/login')
 def rental_detail_view(request, category_slug, vehicle_id):
     vehicle = get_object_or_404(Vehicle, id=vehicle_id, category__category_slug=category_slug)
     booking = RentalBooking.objects.filter(user=request.user, vehicle=vehicle).last()
@@ -194,7 +194,7 @@ def payment_success(request, booking_id):
         return render(request, "payment_failed.html")
 
 
-@login_required
+@login_required(login_url='/login')
 def booking_detail_view(request, booking_id):
     booking = get_object_or_404(RentalBooking, id=booking_id, user=request.user)
     vehicle = booking.vehicle
@@ -205,7 +205,7 @@ def booking_detail_view(request, booking_id):
 
 
 
-@login_required
+@login_required(login_url='/login')
 @csrf_exempt
 def cancel_booking(request, booking_id):
     booking = get_object_or_404(RentalBooking, id=booking_id, user=request.user)

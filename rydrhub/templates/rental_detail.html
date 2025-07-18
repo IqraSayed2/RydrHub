@@ -178,6 +178,7 @@
         name="fullname"
         {# Prioritize initial_fullname (from GET) if available, otherwise request.user.first_name #}
         value="{% if initial_fullname %}{{ initial_fullname }}{% elif request.user.is_authenticated %}{{ request.user.first_name }}{% endif %}"
+        required
       />
     </div>
     <div class="mb-3">
@@ -189,6 +190,8 @@
         name="phone"
         {# Pre-fill phone from GET, then from user profile if authenticated #}
         value="{% if initial_phone %}{{ initial_phone }}{% elif request.user.is_authenticated and request.user.profile.phone %}{{ request.user.profile.phone }}{% endif %}"
+        pattern="[0-9]{10}"
+        required
       />
     </div>
     <div class="mb-3">
@@ -200,6 +203,7 @@
         name="email"
         {# Prioritize initial_email (from GET) if available, otherwise request.user.email #}
         value="{% if initial_email %}{{ initial_email }}{% elif request.user.is_authenticated %}{{ request.user.email }}{% endif %}"
+        required
       />
     </div>
     <div class="mb-3">
@@ -210,6 +214,7 @@
         placeholder="Pickup Address"
         name="pickup_address"
         value="{{ initial_pickup_location }}" {# Pre-fill from GET param #}
+        required
       />
     </div>
     <div class="mb-3">
@@ -220,6 +225,7 @@
         placeholder="Return Address"
         name="return_address"
         value="{{ initial_return_location }}" {# Pre-fill from GET param #}
+        required
       />
     </div>
     <div class="mb-3">
@@ -232,6 +238,7 @@
         id="pickupDateTime"
         name="pickup_datetime"
         value="{{ initial_pickup_datetime }}" {# Pre-fill from GET param #}
+        required
       />
     </div>
     <div class="mb-3">
@@ -244,6 +251,7 @@
         id="returnDateTime"
         name="return_datetime"
         value="{{ initial_return_datetime }}" {# Pre-fill from GET param #}
+        required
       />
     </div>
 

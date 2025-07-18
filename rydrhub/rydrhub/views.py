@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.shortcuts import render,HttpResponseRedirect
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
 
 def home(request):
     return render(request,"index.html")
@@ -51,11 +54,27 @@ def user_logout(request):
     logout(request)
     return HttpResponseRedirect("/login")
 
+
 def faqs(request):
     return render(request,"faq.html")
 
-def contact(request):
-    return render(request,"contact.html")
 
+@login_required(login_url='/login')
+def contact(request):
+    if request.method == 'POST':
+        name = request.POST.get('contact-form-name')
+        email = request.POST.get('contact-form-email')
+        phone = request.POST.get('contact-form-phone')
+        subject = request.POST.get('contact-form-subject')
+        message = request.POST.get('contact-form-message')
+
+        print("Contact form submitted:", name, email, subject)
+
+        messages.success(request, "Your message has been sent successfully! Our customer support team will respond to your case as soon as possible.")
+        return redirect('contact') 
+    return render(request, 'contact.html')
+
+
+@login_required(login_url='/login')
 def my_bookings(request):
     return render(request,'my_bookings.html')

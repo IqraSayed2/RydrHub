@@ -2,6 +2,15 @@
 {% block title %}Contact{% endblock %} 
 {% block content %}
 
+{% if messages %}
+  <div class="message-container">
+    {% for message in messages %}
+      <div class="alert alert-success" role="alert">
+        {{ message }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}
  <div class="contact-form-body">
     <div class="contact-form-container">
       <div class="contact-form-card contact-form-message-card">
@@ -9,13 +18,15 @@
           <i class="fas fa-paper-plane contact-form-icon"></i>
           <h2>Send Us a Message</h2>
         </div>
-        <form class="contact-form-grid">
+        <form method="post" action="{% url 'contact' %}" class="contact-form-grid">
+          {% csrf_token %}
           <div class="contact-form-input-group">
             <label for="contact-form-name">Name</label>
             <input
               type="text"
               id="contact-form-name"
               placeholder="Your full name"
+              value="{% if initial_fullname %}{{ initial_fullname }}{% elif request.user.is_authenticated %}{{ request.user.first_name }}{% endif %}"
               required
             />
           </div>
@@ -25,6 +36,7 @@
               type="email"
               id="contact-form-email"
               placeholder="your.email@example.com"
+              value="{% if initial_email %}{{ initial_email }}{% elif request.user.is_authenticated %}{{ request.user.email }}{% endif %}"
               required
             />
           </div>
@@ -33,7 +45,10 @@
             <input
               type="tel"
               id="contact-form-phone"
-              placeholder="+1 (555) 123-4567"
+              placeholder="phone number"
+              value="{% if initial_phone %}{{ initial_phone }}{% elif request.user.is_authenticated and request.user.profile.phone %}{{ request.user.profile.phone }}{% endif %}"
+              pattern="[0-9]{10}"
+              required
             />
           </div>
           <div class="contact-form-input-group">
@@ -43,9 +58,6 @@
               <option value="new_booking_inquiry">New Booking Inquiry</option>
               <option value="customer_support">Customer Support</option>
               <option value="billing_question">Billing Question</option>
-              <option value="feedback_suggestions">
-                Feedback & Suggestions
-              </option>
               <option value="business_partnership">Business Partnership</option>
               <option value="others">Other</option>
             </select>
@@ -54,7 +66,7 @@
             <label for="contact-form-message">Message</label>
             <textarea
               id="contact-form-message"
-              rows="6"
+              rows="5"
               placeholder="Please provide details about your inquiry..."
               required
             ></textarea>
