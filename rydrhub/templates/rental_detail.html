@@ -161,7 +161,7 @@
     <div class="col-lg-4">
       <div class="rh-sticky-column">
         <!-- Booking Form starts here -->
-        <form method="post" action="{% url 'book_car' vehicle.id %}">
+        <form method="POST" action="{% url 'book_car' vehicle.id %}">
 
           {% csrf_token %}
 

@@ -19,11 +19,10 @@
                             {% if category.category_image %}
                                 <img src="{{ category.category_image.url }}" alt="{{ category.category_name }}" class="rydrhub-ride-card-image">
                             {% else %}
-                                {# Fallback placeholder if no image is uploaded #}
                                 <img src="https://placehold.co/400x250/{{ category.category_name|slice:":2"|upper }}000/FFFFFF?text={{ category.category_name }}" alt="{{ category.category_name }}" class="rydrhub-ride-card-image">
                             {% endif %}
                             <div class="rydrhub-rating-overlay">
-                                <i class="fas fa-star"></i> 4.9 {# You might want to make this dynamic later #}
+                                <i class="fas fa-star"></i> 4.9 
                             </div>
                         </div>
                         <div class="rydrhub-ride-card-body">
@@ -35,15 +34,13 @@
                                 {% if category.speciality %}
                                     <li><i class="fas fa-gem"></i> {{ category.speciality }}</li>
                                     <li><i class="fas fa-gem"></i> {{ category.otherspeciality }}</li>
-                                {% endif %}
-                                {# You can add more features here if needed, e.g., icons for specific car models #}
+                                {% endif %}                               
                             </ul>
                             <div class="rydrhub-ride-price-section">
                                 <div>
                                     <div class="rydrhub-ride-price-label">Price</div>
                                     <div class="rydrhub-ride-price-value">Starting from ₹ <span style="color: #4CAF50;">{{ category.starting_price }}/day</span></div>
-                                </div>
-                                {# Link to the generic vehicle_list_by_category view using the category slug #}
+                                </div>                              
                                 <a href="{% url 'vehicle_list_by_category' category_slug=category.category_slug %}?pickup_location={{ pickup_location }}&return_location={{ return_location }}&pickup_datetime={{ pickup_datetime }}&return_datetime={{ return_datetime }}" class="btn rydrhub-btn-select-ride rydrhub-btn-green-gradient">Explore Models </a>
                             </div>
                         </div>

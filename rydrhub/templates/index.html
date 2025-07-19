@@ -25,7 +25,6 @@
   </head>
 
   <body class="indexbody">
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
       <div class="container">
@@ -53,7 +52,9 @@
               <a class="nav-link" href="{% url 'service' %}">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'home' %}#working">How it Works</a>
+              <a class="nav-link" href="{% url 'home' %}#working"
+                >How it Works</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'faqs' %}">FAQs</a>
@@ -67,8 +68,22 @@
           </ul>
           <div class="d-flex">
             {% if request.user.is_authenticated %}
-            <a class="btn btn-outline-success me-2" href="#" role="button"
-              >{{request.user.username}}
+            <a class="btn btn-outline-success me-2" href="#" role="button">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="19"
+                height="23"
+                fill="currentColor"
+                class="bi bi-person-circle"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                <path
+                  fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
+                />
+              </svg>
+              {{request.user.username}}
             </a>
             <a
               class="btn btn-outline-success me-2"
@@ -147,52 +162,60 @@
               <h2 class="form-title">Book Your Premium Ride</h2>
               <p class="form-subtitle">Experience luxury transportation</p>
 
-              <form method="get" action="{% url 'service' %}"> 
+              <form method="get" action="{% url 'service' %}">
                 <div class="mb-3">
-                  <label for="pickupLocation" class="form-label">Pickup Location</label>
+                  <label for="pickupLocation" class="form-label"
+                    >Pickup Location</label
+                  >
                   <input
                     type="text"
                     class="form-control form-control-dark"
                     id="pickupLocation"
                     placeholder="Enter pickup location"
-                    name="pickup_location" 
+                    name="pickup_location"
                     required
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="returnLocation" class="form-label">Return Location</label> 
+                  <label for="returnLocation" class="form-label"
+                    >Return Location</label
+                  >
                   <input
                     type="text"
                     class="form-control form-control-dark"
-                    id="returnLocation" 
+                    id="returnLocation"
                     placeholder="Enter return location"
-                    name="return_location" 
+                    name="return_location"
                     required
                   />
                 </div>
 
                 <div class="row mb-4">
                   <div class="col-md-6">
-                    <label for="pickupDatetime" class="form-label">Pickup Date & Time</label>
+                    <label for="pickupDatetime" class="form-label"
+                      >Pickup Date & Time</label
+                    >
                     <div class="input-group">
                       <input
                         type="datetime-local"
                         class="form-control form-control-dark"
                         id="pickupDatetime"
-                        name="pickup_datetime" 
+                        name="pickup_datetime"
                         style="color: #a0a0a0; opacity: 1"
                         required
                       />
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <label for="returnDatetime" class="form-label">Return Date & Time</label>
+                    <label for="returnDatetime" class="form-label"
+                      >Return Date & Time</label
+                    >
                     <div class="input-group">
                       <input
                         type="datetime-local"
                         class="form-control form-control-dark"
                         id="returnDatetime"
-                        name="return_datetime" 
+                        name="return_datetime"
                         style="color: #a0a0a0; opacity: 1"
                         required
                       />
@@ -247,7 +270,9 @@
           <!-- Feature Box 1: Safe & Secure -->
           <div class="col-lg-4 col-md-6 col-sm-10">
             <div class="feature-box">
-              <div class="feature-icon-placeholder icon-bg-light-green"><i class="fas fa-shield-alt"></i></div>
+              <div class="feature-icon-placeholder icon-bg-light-green">
+                <i class="fas fa-shield-alt"></i>
+              </div>
               <h3 class="feature-title-box">Safe & Secure</h3>
               <p class="feature-description-box">
                 All drivers are verified with background checks and vehicles
@@ -259,7 +284,9 @@
           <!-- Feature Box 2: 24/7 Availability -->
           <div class="col-lg-4 col-md-6 col-sm-10">
             <div class="feature-box">
-              <div class="feature-icon-placeholder icon-bg-light-blue"><i class="fas fa-clock"></i></div>
+              <div class="feature-icon-placeholder icon-bg-light-blue">
+                <i class="fas fa-clock"></i>
+              </div>
               <h3 class="feature-title-box">24/7 Availability</h3>
               <p class="feature-description-box">
                 Round-the-clock service with average pickup time of just 3
@@ -271,7 +298,9 @@
           <!-- Feature Box 3: Real-time Tracking -->
           <div class="col-lg-4 col-md-6 col-sm-10">
             <div class="feature-box">
-              <div class="feature-icon-placeholder icon-bg-light-purple"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="feature-icon-placeholder icon-bg-light-purple">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
               <h3 class="feature-title-box">Real-time Tracking</h3>
               <p class="feature-description-box">
                 Live GPS tracking with ETA updates and location sharing for
@@ -283,7 +312,9 @@
           <!-- Feature Box 4: Cashless Payments -->
           <div class="col-lg-4 col-md-6 col-sm-10">
             <div class="feature-box">
-              <div class="feature-icon-placeholder icon-bg-light-orange"><i class="fas fa-credit-card"></i></div>
+              <div class="feature-icon-placeholder icon-bg-light-orange">
+                <i class="fas fa-credit-card"></i>
+              </div>
               <h3 class="feature-title-box">Cashless Payments</h3>
               <p class="feature-description-box">
                 Secure digital payments with multiple options including cards,
@@ -295,7 +326,9 @@
           <!-- Feature Box 5: 24/7 Support -->
           <div class="col-lg-4 col-md-6 col-sm-10">
             <div class="feature-box">
-              <div class="feature-icon-placeholder icon-bg-light-teal"><i class="fas fa-comments"></i></div>
+              <div class="feature-icon-placeholder icon-bg-light-teal">
+                <i class="fas fa-comments"></i>
+              </div>
               <h3 class="feature-title-box">24/7 Support</h3>
               <p class="feature-description-box">
                 Dedicated customer support team available via chat, phone, and
@@ -307,7 +340,9 @@
           <!-- Feature Box 6: Rated Drivers -->
           <div class="col-lg-4 col-md-6 col-sm-10">
             <div class="feature-box">
-              <div class="feature-icon-placeholder icon-bg-light-yellow"><i class="fas fa-star"></i></div>
+              <div class="feature-icon-placeholder icon-bg-light-yellow">
+                <i class="fas fa-star"></i>
+              </div>
               <h3 class="feature-title-box">Rated Drivers</h3>
               <p class="feature-description-box">
                 All drivers maintain 4.8+ ratings with continuous training and
@@ -471,7 +506,6 @@
                 ><i class="fas fa-star"></i> 4.9 Rating</span
               >
             </div>
-            <!-- Removed social media icons as requested -->
           </div>
           <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
             <h5 class="footer-links-title">Quick Links</h5>

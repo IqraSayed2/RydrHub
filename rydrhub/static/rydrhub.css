@@ -42,33 +42,32 @@
   border-color: #4caf50;
   border-radius: 0.5rem;
   padding: 0.5rem 1.5rem;
-  transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Added transform and box-shadow to transition */
+  transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-outline-success:hover {
   background-color: #4caf50;
   color: #fff;
-  transform: translateY(-2px) scale(1.02); /* Enhanced hover */
-  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4); /* Enhanced shadow */
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
 }
 
 .btn-success-gradient {
-  background: linear-gradient(to right, #4caf50, #8bc34a); /* Green gradient */
+  background: linear-gradient(to right, #4caf50, #8bc34a);
   border: none;
   color: #fff;
   border-radius: 0.5rem;
   padding: 0.5rem 1.5rem;
   font-weight: 600;
-  transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Added transform and box-shadow to transition */
+  transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-success-gradient:hover {
   opacity: 0.9;
-  transform: translateY(-2px) scale(1.02); /* Enhanced hover */
-  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4); /* Enhanced shadow */
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
 }
 
-/* Fix for Navbar Toggler Icon Visibility in Dark Theme */
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
@@ -94,7 +93,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+  background: rgba(0, 0, 0, 0.6);
   z-index: 1;
 }
 
@@ -106,7 +105,7 @@
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  opacity: 0.4; /* Adjust opacity to blend with overlay */
+  opacity: 0.4;
 }
 
 .hero-content {
@@ -134,24 +133,19 @@
 }
 
 .feature-card {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.08
-  ); /* Semi-transparent dark background */
+  background-color: rgba(255, 255, 255, 0.08);
   border-radius: 1rem;
   padding: 1.5rem;
   text-align: center;
   margin-bottom: 1rem;
-  backdrop-filter: blur(10px); /* Frosted glass effect */
+  backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ensure transition includes transform and box-shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-card:hover {
-  transform: translateY(-8px) scale(1.03); /* Enhanced: more lift and slight scale */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Enhanced: stronger shadow */
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
 .feature-card .icon {
@@ -171,19 +165,14 @@
 }
 
 .booking-form-container {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.1
-  ); /* Semi-transparent dark background */
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 1.5rem;
   padding: 2.5rem;
-  backdrop-filter: blur(15px); /* Stronger frosted glass for the form */
+  backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   max-width: 500px;
-  margin-left: auto; /* Align to right */
+  margin-left: auto;
 }
 
 .form-title {
@@ -225,11 +214,7 @@
 }
 
 .btn-book-ride {
-  background: linear-gradient(
-    to right,
-    #28a745,
-    #218838
-  ); /* Deeper green gradient */
+  background: linear-gradient(to right, #28a745, #218838);
   border: none;
   color: #fff;
   border-radius: 0.75rem;
@@ -237,14 +222,14 @@
   font-size: 1.1rem;
   font-weight: 600;
   width: 100%;
-  transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease; /* Added transform and box-shadow to transition */
+  transition: all 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
 }
 
 .btn-book-ride:hover {
   opacity: 0.95;
-  transform: translateY(-3px) scale(1.01); /* Enhanced hover */
-  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6); /* Enhanced shadow */
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6);
 }
 
 /* Ride Experience Section Styles */
@@ -266,26 +251,26 @@
 /* Fleet explore */
 
 .fleet-container {
-  background-color: #121212; /* Dark background for the whole page */
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* A modern font */
+  background-color: #121212;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
-  padding: 20px; /* Some padding around the content */
-  box-sizing: border-box; /* Include padding in element's total width and height */
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .rydrhub-fleet-explore-section {
-  background-color: #161b22; /* Deep, slightly purplish dark blue/grey */
-  border-radius: 18px; /* Rounded corners */
-  padding: 70px 30px; /* Generous padding */
+  background-color: #161b22;
+  border-radius: 18px;
+  padding: 70px 30px;
   text-align: center;
-  color: #e0e0e0; /* Light grey for main text */
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6); /* Pronounced shadow */
-  max-width: 1000px; /* Max width for content */
-  width: 100%; /* Ensure it takes full width up to max-width */
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Darker border */
+  color: #e0e0e0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  max-width: 1000px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
@@ -293,64 +278,59 @@
 
 /* Heading Styling */
 .rydrhub-fleet-explore-heading {
-  font-size: 3rem; /* Larger, impactful heading */
-  font-weight: 800; /* Extra bold */
+  font-size: 3rem;
+  font-weight: 800;
   margin-bottom: 20px;
-  color: #e0e0e0; /* Heading color */
-  text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4); /* Enhanced text shadow */
-  letter-spacing: 0.03em; /* Slightly wider letter spacing */
+  color: #e0e0e0;
+  text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.03em;
 }
 
 /* Description Styling */
 .rydrhub-fleet-explore-description {
-  font-size: 1.3rem; /* Larger description text */
-  color: #a0a0c0; /* Muted grey for descriptions */
-  max-width: 750px; /* Wider max-width for description */
-  margin: 0 auto 50px auto; /* Center and add more bottom margin */
+  font-size: 1.3rem;
+  color: #a0a0c0;
+  max-width: 750px;
+  margin: 0 auto 50px auto;
   line-height: 1.7;
 }
 
 /* Unique Gradient Button Styling */
 .rydrhub-btn-gradient {
-  background: linear-gradient(
-    90deg,
-    #28a745 0%,
-    #218838 100%
-  ); /* Deep purple to vibrant blue-purple gradient */
+  background: linear-gradient(90deg, #28a745 0%, #218838 100%);
   border: none;
   color: white;
-  padding: 14px 35px; /* Larger padding */
-  font-size: 1.2rem; /* Larger font size */
-  font-weight: 700; /* Bolder text */
-  border-radius: 30px; /* Pill-shaped button */
-  transition: all 0.4s ease-in-out; /* Slower, smoother transition */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Deeper shadow */
-  text-decoration: none; /* Remove underline for anchor tag */
-  display: inline-flex; /* Align icon and text vertically */
+  padding: 14px 35px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 30px;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
 .rydrhub-btn-gradient:hover {
   opacity: 0.95;
-  transform: translateY(-3px) scale(1.01); /* Enhanced hover */
-  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6); /* Enhanced shadow */
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6);
 }
 
 .rydrhub-btn-gradient .fas {
-  /* Style for the Font Awesome icon inside the button */
-  margin-left: 10px; /* Custom spacing for icon */
+  margin-left: 10px;
   transition: transform 0.3s ease;
 }
 
 .rydrhub-btn-gradient:hover .fas {
-  transform: translateX(5px); /* Slide icon slightly on hover */
+  transform: translateX(5px);
 }
 
 /* Premium Features Section Styles */
 .section-container-features {
   padding: 40px 0;
-  background-color: #0d1117; /* Dark background */
+  background-color: #0d1117;
   color: #e0e0e0;
 }
 
@@ -359,8 +339,8 @@
   align-items: center;
   padding: 0.5rem 1.2rem;
   border-radius: 2rem;
-  background-color: #e6f7ed; /* Light green background */
-  color: #28a745; /* Green text */
+  background-color: #e6f7ed;
+  color: #28a745;
   font-weight: 600;
   font-size: 0.9rem;
   margin-bottom: 1.5rem;
@@ -375,38 +355,38 @@
 .section-title-features {
   font-size: 2.8rem;
   font-weight: 800;
-  color: #fff; /* White for dark background */
+  color: #fff;
   margin-bottom: 1rem;
   line-height: 1.2;
 }
 
 .section-title-features .highlight {
-  color: #4caf50; /* Green highlight */
+  color: #4caf50;
 }
 
 .section-description-features {
   font-size: 1.1rem;
-  color: #a0a0a0; /* Lighter gray for dark background */
+  color: #a0a0a0;
   max-width: 700px;
   margin: 0 auto 3rem auto;
   line-height: 1.6;
 }
 
 .feature-box {
-  background-color: #161b22; /* Darker background for feature boxes */
+  background-color: #161b22;
   border-radius: 1rem;
   padding: 2rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ensure transition includes transform and box-shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Lighter border for dark theme */
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .feature-box:hover {
-  transform: translateY(-10px) scale(1.03); /* Enhanced: more lift and slight scale */
-  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.6); /* Enhanced: stronger shadow */
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.6);
 }
 
 .feature-icon-placeholder {
@@ -422,7 +402,6 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Specific placeholder colors for features */
 .icon-bg-light-green {
   background-color: #4caf50;
   border: 1px solid #388e3c;
@@ -464,7 +443,7 @@
 /* How RydrHub Works Section Styles */
 .how-it-works-section {
   padding: 40px 0;
-  background-color: #0d1117; /* Dark background */
+  background-color: #0d1117;
   color: #e0e0e0;
   text-align: center;
 }
@@ -474,8 +453,8 @@
   align-items: center;
   padding: 0.5rem 1.2rem;
   border-radius: 2rem;
-  background-color: #e6f7ed; /* Light green background */
-  color: #28a745; /* Green text */
+  background-color: #e6f7ed;
+  color: #28a745;
   font-weight: 600;
   font-size: 0.9rem;
   margin-bottom: 1.5rem;
@@ -496,19 +475,19 @@
 }
 
 .how-it-works-title .highlight {
-  color: #4caf50; /* Green highlight */
+  color: #4caf50;
 }
 
 .how-it-works-description {
   font-size: 1.1rem;
   color: #a0a0a0;
   max-width: 700px;
-  margin: 0 auto 4rem auto; /* Increased margin-bottom */
+  margin: 0 auto 4rem auto;
   line-height: 1.6;
 }
 
 .step-card {
-  background-color: #161b22; /* Darker background for step cards */
+  background-color: #161b22;
   border-radius: 1rem;
   padding: 2rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -519,7 +498,7 @@
   align-items: center;
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative; /* For the number circle */
+  position: relative;
 }
 
 .step-card:hover {
@@ -530,7 +509,7 @@
 .step-number-circle {
   width: 40px;
   height: 40px;
-  background-color: #4caf50; /* Green circle */
+  background-color: #4caf50;
   color: #fff;
   border-radius: 50%;
   display: flex;
@@ -539,10 +518,10 @@
   font-weight: 700;
   font-size: 1.2rem;
   position: absolute;
-  top: -20px; /* Position above the card */
+  top: -20px;
   left: 50%;
   transform: translateX(-50%);
-  border: 3px solid #0d1117; /* Border matching body background */
+  border: 3px solid #0d1117;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   z-index: 1;
 }
@@ -569,10 +548,10 @@
 .step-arrow {
   position: absolute;
   top: 50%;
-  right: -20px; /* Adjust as needed */
+  right: -20px;
   transform: translateY(-50%);
   font-size: 2rem;
-  color: rgba(255, 255, 255, 0.2); /* Subtle arrow */
+  color: rgba(255, 255, 255, 0.2);
   z-index: 0;
 }
 
@@ -586,13 +565,13 @@
 /* Trusted by Millions Section Styles */
 .trusted-section {
   padding: 40px 0;
-  background-color: #0d1117; /* Dark background */
+  background-color: #0d1117;
   color: #e0e0e0;
   text-align: center;
 }
 
 .trusted-card-container {
-  background-color: #161b22; /* Darker card background */
+  background-color: #161b22;
   border-radius: 1.5rem;
   padding: 3rem 2rem;
   max-width: 900px;
@@ -625,20 +604,20 @@
 .stat-icon {
   font-size: 2.5rem;
   margin-bottom: 0.75rem;
-  color: #4caf50; /* Green for icons */
+  color: #4caf50;
 }
-/* Specific colors for icons based on the image */
+
 .stat-icon.users {
-  color: #8a2be2; /* Purple */
+  color: #8a2be2;
 }
 .stat-icon.car {
-  color: #e74c3c; /* Red */
+  color: #e74c3c;
 }
 .stat-icon.star {
-  color: #f1c40f; /* Yellow */
+  color: #f1c40f;
 }
 .stat-icon.driver {
-  color: #3498db; /* Blue */
+  color: #3498db;
 }
 
 .stat-value {
@@ -656,7 +635,7 @@
 
 /* Footer Styles */
 .footer-section {
-  background-color: #161b22; /* Darker background for footer, similar to navbar */
+  background-color: #161b22;
   padding: 60px 0 20px 0;
   color: #e0e0e0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -697,11 +676,9 @@
 }
 
 .footer-badge i {
-  color: #ffd700; /* Gold for stars/badges */
+  color: #ffd700;
   margin-right: 0.5rem;
 }
-
-/* Removed social icons, so no specific styling needed for them anymore */
 
 .footer-links-title {
   font-size: 1.2rem;
@@ -750,7 +727,7 @@
 }
 
 .contact-icon-wrapper {
-  background-color: rgba(76, 175, 80, 0.2); /* Light green tint */
+  background-color: rgba(76, 175, 80, 0.2);
   border-radius: 0.5rem;
   width: 45px;
   height: 45px;
@@ -759,7 +736,7 @@
   justify-content: center;
   font-size: 1.2rem;
   color: #4caf50;
-  flex-shrink: 0; /* Prevent icon from shrinking */
+  flex-shrink: 0;
   margin-right: 1rem;
 }
 
@@ -784,14 +761,14 @@
 }
 
 .footer-bottom .footer-links-bottom a {
-  color: #a0a0a0 !important; /* Set link color to grey, important to override */
-  text-decoration: none !important; /* Remove underline, important to override */
+  color: #a0a0a0 !important;
+  text-decoration: none !important;
   margin-left: 1.5rem;
   transition: color 0.3s ease;
 }
 
 .footer-bottom .footer-links-bottom a:hover {
-  color: #4caf50 !important; /* Green on hover, important to override */
+  color: #4caf50 !important;
 }
 
 /* Responsive adjustments */
@@ -803,16 +780,16 @@
     font-size: 2.5rem;
   }
   .booking-form-container {
-    margin: 3rem auto 0 auto; /* Center form on smaller screens */
+    margin: 3rem auto 0 auto;
   }
   .cta-title {
     font-size: 2rem;
   }
   .step-card {
-    margin-bottom: 3rem; /* Add space between stacked cards */
+    margin-bottom: 3rem;
   }
   .step-number-circle {
-    top: -20px; /* Adjust for stacked layout */
+    top: -20px;
   }
   .trusted-title {
     font-size: 1.8rem;
@@ -1045,7 +1022,7 @@
   top: 1rem;
   right: 1rem;
   background-color: rgba(0, 0, 0, 0.6);
-  color: #ffd700; /* Gold for stars */
+  color: #ffd700;
   padding: 0.3rem 0.7rem;
   border-radius: 0.5rem;
   font-size: 0.9rem;
@@ -1058,7 +1035,7 @@
 
 .rydrhub-ride-card-body {
   padding: 1.5rem;
-  flex-grow: 1; /* Allow body to take available space */
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
@@ -1082,7 +1059,7 @@
   list-style: none;
   padding: 0;
   margin-bottom: 1.5rem;
-  flex-grow: 1; /* Push price and button to bottom */
+  flex-grow: 1;
 }
 
 .rydrhub-ride-features li {
@@ -1133,9 +1110,9 @@
 }
 
 .rydrhub-btn-select-ride:hover {
-  transform: translateY(-3px) scale(1.01); /* Enhanced hover */
+  transform: translateY(-3px) scale(1.01);
   opacity: 0.9;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4); /* Enhanced shadow */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
 }
 
 /* Specific button colors for ride cards */
@@ -1182,7 +1159,7 @@
 /* Responsive adjustments */
 @media (max-width: 991.98px) {
   .rydrhub-ride-card {
-    width: 280px; /* Slightly smaller width on medium screens */
+    width: 280px;
     margin-right: 1rem;
   }
 }
@@ -1195,7 +1172,7 @@
     font-size: 0.95rem;
   }
   .rydrhub-ride-card {
-    width: 250px; /* Even smaller width on small screens */
+    width: 250px;
     margin-right: 0.75rem;
   }
 }
@@ -1204,37 +1181,21 @@
 
 /* rental detail page */
 
-/* CSS Variables for Dark Theme */
-:root {
-  --rh-detail-body-bg: #0d1117;
-  --rh-detail-text-color: #e0e0e0;
-  --rh-detail-card-bg: #1a202c;
-  --rh-detail-subtitle-color: #a0a0a0;
-  --rh-detail-border-color: rgba(255, 255, 255, 0.1);
-  --rh-detail-accent-green: #4caf50;
-  --rh-detail-header-bg: #1a202c;
-  --rh-detail-header-border: rgba(255, 255, 255, 0.15);
-  --rh-detail-form-control-bg: rgba(255, 255, 255, 0.08);
-  --rh-detail-form-control-border: rgba(255, 255, 255, 0.2);
-  --rh-detail-form-control-placeholder: #a0a0a0;
-  --rh-detail-list-item-bg: transparent; /* No background for list items in dark mode */
-}
-
 /* General Body Styles */
 body {
   font-family: "Inter", sans-serif;
-  background-color: var(--rh-detail-body-bg);
-  color: var(--rh-detail-text-color);
-  min-height: 100vh; /* Ensure body takes full viewport height */
+  background-color: #0d1117;
+  color: #e0e0e0;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 /* Header Section */
 .rh-header-section {
-  background-color: var(--rh-detail-header-bg);
+  background-color: #1a202c;
   padding: 1.5rem 0;
-  border-bottom: 1px solid var(--rh-detail-header-border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   text-align: center;
   position: relative;
 }
@@ -1242,38 +1203,37 @@ body {
 .rh-header-section h1 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--rh-detail-text-color);
+  color: #e0e0e0;
   margin-bottom: 0.5rem;
 }
 
 .rh-header-section p {
   font-size: 0.95rem;
-  color: var(--rh-detail-subtitle-color);
+  color: #a0a0a0;
   margin-bottom: 0;
 }
 
-/* Main Content Area */
 .rh-main-content {
   padding: 3rem 0;
-  flex-grow: 1; /* Allow content to grow and push footer down */
+  flex-grow: 1;
 }
 
 /* Card Styles */
 .rh-card {
-  background-color: var(--rh-detail-card-bg);
+  background-color: #1a202c;
   border-radius: 1rem;
   padding: 2rem;
   margin-bottom: 1.5rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  border: 1px solid var(--rh-detail-border-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .rh-card-title {
   font-size: 1.6rem;
   font-weight: 700;
-  color: var(--rh-detail-text-color);
+  color: #e0e0e0;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid var(--rh-detail-border-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 0.75rem;
 }
 
@@ -1290,13 +1250,13 @@ body {
   object-fit: cover;
   border-radius: 0.75rem;
   margin-right: 1.5rem;
-  border: 1px solid var(--rh-detail-border-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .rh-car-info h3 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--rh-detail-text-color);
+  color: #e0e0e0;
   margin-bottom: 0.75rem;
 }
 
@@ -1308,14 +1268,14 @@ body {
 
 .rh-car-specs li {
   font-size: 0.95rem;
-  color: var(--rh-detail-subtitle-color);
+  color: #a0a0a0;
   margin-bottom: 0.5rem;
   display: flex;
   align-items: center;
 }
 
 .rh-car-specs li i {
-  color: var(--rh-detail-accent-green);
+  color: #4caf50;
   margin-right: 0.75rem;
   margin-left: 0.75rem;
   font-size: 0.85rem;
@@ -1325,8 +1285,8 @@ body {
 .rh-driver-details {
   display: flex;
   align-items: center;
-  background-color: rgba(76, 175, 80, 0.1); /* Light green background */
-  border: 1px solid var(--rh-detail-accent-green);
+  background-color: rgba(76, 175, 80, 0.1);
+  border: 1px solid #4caf50;
   border-radius: 0.75rem;
   padding: 1rem 1.5rem;
   margin-top: 1.5rem;
@@ -1343,44 +1303,44 @@ body {
 .rh-driver-text p {
   margin: 0;
   font-size: 0.95rem;
-  color: var(--rh-detail-text-color);
+  color: #e0e0e0;
 }
 
 .rh-driver-text span {
   font-weight: 600;
-  color: var(--rh-detail-accent-green);
+  color: #4caf50;
 }
 
 /* Inclusions/Exclusions & Cancellation Policy */
 .list-group-item {
-  background-color: var(--rh-detail-list-item-bg);
-  border-color: var(--rh-detail-border-color);
-  color: var(--rh-detail-text-color);
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
 }
 
 .rh-list-group-item i.fa-check-circle {
-  color: var(--rh-detail-accent-green);
+  color: #4caf50;
   margin-right: 0.75rem;
 }
 
 .rh-list-group-item i.fa-times-circle {
-  color: #dc3545; /* Red for exclusions */
+  color: #dc3545;
   margin-right: 0.75rem;
 }
 
 .rh-extra-charges {
   margin-top: 1.5rem;
   margin-bottom: 1rem;
-  color: var(--rh-detail-text-color);
+  color: #e0e0e0;
 }
 
 .rh-cancellation-policy p {
   margin-bottom: 0.5rem;
-  color: var(--rh-detail-subtitle-color);
+  color: #a0a0a0;
 }
 
 .rh-cancellation-policy strong {
-  color: var(--rh-detail-text-color);
+  color: #e0e0e0;
 }
 
 .rh-other-info ul {
@@ -1391,14 +1351,14 @@ body {
 
 .rh-other-info li {
   font-size: 0.95rem;
-  color: var(--rh-detail-subtitle-color);
+  color: #a0a0a0;
   margin-bottom: 0.5rem;
   display: flex;
   align-items: flex-start;
 }
 
 .rh-other-info li i {
-  color: #ffc107; /* Yellow for info */
+  color: #ffc107;
   margin-right: 0.75rem;
   font-size: 0.85rem;
   margin-top: 0.2rem;
@@ -1407,42 +1367,40 @@ body {
 /* Sticky Column */
 .rh-sticky-column {
   position: sticky;
-  top: 20px; /* Adjust as needed */
+  top: 20px;
 }
 
 /* Form Styles */
 .rh-form-label {
-  color: var(--rh-detail-text-color);
+  color: #e0e0e0;
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
 
 .rh-form-control {
-  background-color: var(--rh-detail-form-control-bg);
-  border: 1px solid var(--rh-detail-form-control-border);
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #e0e0e0;
   border-radius: 0.5rem;
   padding: 0.75rem 1rem;
 }
 
 .rh-form-control::placeholder {
-  color: var(--rh-detail-form-control-placeholder);
+  color: #a0a0a0;
 }
 
 .rh-form-control:focus {
-  background-color: var(
-    --rh-detail-form-control-bg
-  ); /* Keep consistent background on focus */
-  border-color: var(--rh-detail-accent-green);
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: #4caf50;
   box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
-  color: var(--rh-detail-text-color);
+  color: #e0e0e0;
 }
 
 .rh-input-group-text {
-  background-color: var(--rh-detail-form-control-bg);
-  border: 1px solid var(--rh-detail-form-control-border);
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-left: none;
-  color: var(--rh-detail-form-control-placeholder);
+  color: #a0a0a0;
   border-radius: 0 0.5rem 0.5rem 0;
 }
 
@@ -1457,7 +1415,7 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: var(--rh-detail-text-color);
+  color: #e0e0e0;
 }
 
 .rh-payment-option {
@@ -1465,21 +1423,21 @@ body {
 }
 
 .rh-payment-option .form-check-input {
-  background-color: var(--rh-detail-form-control-bg);
-  border-color: var(--rh-detail-border-color);
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .rh-payment-option .form-check-input:checked {
-  background-color: var(--rh-detail-accent-green);
-  border-color: var(--rh-detail-accent-green);
+  background-color: #4caf50;
+  border-color: #4caf50;
 }
 
 .rh-payment-option .form-check-label {
-  color: var(--rh-detail-text-color);
+  color: #e0e0e0;
 }
 
 .rh-btn-confirm {
-  background: linear-gradient(to right, #28a745, #218838); /* Green gradient */
+  background: linear-gradient(to right, #28a745, #218838);
   border: none;
   color: #fff;
   border-radius: 0.75rem;
@@ -1509,7 +1467,7 @@ body {
     margin-bottom: 1rem;
   }
   .rh-sticky-column {
-    position: static; /* Remove sticky on smaller screens */
+    position: static;
     top: auto;
   }
 }
@@ -1867,8 +1825,8 @@ body {
 /* Responsive Adjustments */
 @media (max-width: 991.98px) {
   .rh-trip-sticky-column {
-    position: static; /* Disable sticky on smaller screens */
-    margin-top: 2rem; /* Add space when not sticky */
+    position: static;
+    margin-top: 2rem;
   }
   .rh-trip-route-header .rh-trip-route-info {
     font-size: 1rem;
@@ -1932,30 +1890,12 @@ body {
 
 /* Register */
 
-/* CSS Variables for Theme */
-:root {
-  /* Dark Mode (Default) */
-  --rh-signup-body-bg: #0d1117;
-  --rh-signup-text-color: #e0e0e0;
-  --rh-signup-card-bg: #1a202c;
-  --rh-signup-link-color: #a0a0a0;
-  --rh-signup-link-hover-color: #4caf50;
-  --rh-signup-accent-green: #4caf50;
-  --rh-signup-subtitle-color: #a0a0a0;
-  --rh-signup-form-control-bg: rgba(255, 255, 255, 0.08);
-  --rh-signup-form-control-border: rgba(255, 255, 255, 0.2);
-  --rh-signup-border-color: rgba(255, 255, 255, 0.1);
-  --rh-signup-toggle-button-color: #e0e0e0;
-  --rh-signup-header-bg: #1a202c;
-  --rh-signup-header-border: rgba(255, 255, 255, 0.15);
-}
-
 /* General Body Styles */
 .signupbody {
   font-family: "Inter", sans-serif;
-  background-color: var(--rh-signup-body-bg);
-  color: var(--rh-signup-text-color);
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  background-color: #0d1117;
+  color: #e0e0e0;
+  overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -1964,25 +1904,25 @@ body {
 
 /* Header Section */
 .rh-signup-header-section {
-  background-color: var(--rh-signup-header-bg);
+  background-color: #1a202c;
   padding: 1.5rem 0;
-  border-bottom: 1px solid var(--rh-signup-header-border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   text-align: center;
-  position: relative; /* For theme toggle button */
+  position: relative;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .rh-signup-header-section h1 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--rh-signup-text-color);
+  color: #e0e0e0;
   margin-bottom: 0.5rem;
   transition: color 0.3s ease;
 }
 
 /* Main Content Area */
 .rh-signup-main-content {
-  flex-grow: 1; /* Allow content to take available vertical space */
+  flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1991,11 +1931,11 @@ body {
 
 /* Form Card Styles */
 .rh-signup-card {
-  background-color: var(--rh-signup-card-bg);
+  background-color: #1a202c;
   border-radius: 1rem;
   padding: 2.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--rh-signup-border-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
   max-width: 700px;
   width: 100%;
@@ -2005,23 +1945,23 @@ body {
 .rh-signup-title {
   font-size: 2.2rem;
   font-weight: 700;
-  color: var(--rh-signup-text-color);
+  color: #e0e0e0;
   margin-bottom: 1rem;
   transition: color 0.3s ease;
 }
 
 .rh-signup-subtitle {
   font-size: 1.1rem;
-  color: var(--rh-signup-subtitle-color);
+  color: #a0a0a0;
   margin-bottom: 2rem;
   line-height: 1.6;
   transition: color 0.3s ease;
 }
 
 .rh-signup-form-control {
-  background-color: var(--rh-signup-form-control-bg);
-  border: 1px solid var(--rh-signup-form-control-border);
-  color: var(--rh-signup-text-color);
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #e0e0e0;
   border-radius: 0.5rem;
   padding: 0.75rem 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease,
@@ -2029,17 +1969,15 @@ body {
 }
 
 .rh-signup-form-control::placeholder {
-  color: var(--rh-signup-subtitle-color);
+  color: #a0a0a0;
 }
 
 .rh-signup-form-control:focus {
-  background-color: var(--rh-signup-form-control-bg);
-  border-color: var(--rh-signup-accent-green);
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: #4caf50;
   box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
-  color: var(--rh-signup-text-color);
+  color: #e0e0e0;
 }
-
-/* Removed .rh-signup-form-label as per request */
 
 .rh-signup-button {
   background: linear-gradient(to right, #28a745, #218838);
@@ -2064,12 +2002,12 @@ body {
 .rh-signup-login-link {
   margin-top: 1.5rem;
   font-size: 0.95rem;
-  color: var(--rh-signup-subtitle-color);
+  color: #a0a0a0;
   transition: color 0.3s ease;
 }
 
 .rh-signup-login-link a {
-  color: var(--rh-signup-accent-green);
+  color: #4caf50;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
@@ -2077,7 +2015,7 @@ body {
 
 .rh-signup-login-link a:hover {
   text-decoration: underline;
-  color: var(--rh-signup-link-hover-color);
+  color: #4caf50;
 }
 
 /* Responsive Adjustments */
@@ -2115,28 +2053,12 @@ body {
 
 /* Login */
 
-/* CSS Variables for Theme */
-:root {
-  /* Dark Mode (Default) */
-  --rh-login-body-bg: #0d1117;
-  --rh-login-text-color: #e0e0e0;
-  --rh-login-card-bg: #1a202c;
-  --rh-login-link-color: #a0a0a0;
-  --rh-login-link-hover-color: #4caf50;
-  --rh-login-accent-green: #4caf50;
-  --rh-login-subtitle-color: #a0a0a0;
-  --rh-login-form-control-bg: rgba(255, 255, 255, 0.08);
-  --rh-login-form-control-border: rgba(255, 255, 255, 0.2);
-  --rh-login-border-color: rgba(255, 255, 255, 0.1);
-  --rh-login-toggle-button-color: #e0e0e0;
-}
-
 /* General Body Styles */
 body {
   font-family: "Inter", sans-serif;
-  background-color: var(--rh-login-body-bg);
-  color: var(--rh-login-text-color);
-  overflow-x: hidden; /* Prevent horizontal scroll */
+  background-color: #0d1117;
+  color: #e0e0e0;
+  overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -2145,7 +2067,7 @@ body {
 
 /* Main Content Area */
 .rh-login-main-content {
-  flex-grow: 1; /* Allow content to take available vertical space */
+  flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2154,11 +2076,11 @@ body {
 
 /* Form Card Styles */
 .rh-login-card {
-  background-color: var(--rh-login-card-bg);
+  background-color: #1a202c;
   border-radius: 1rem;
   padding: 2.5rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--rh-login-border-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
   max-width: 650px;
   width: 100%;
@@ -2168,23 +2090,23 @@ body {
 .rh-login-title {
   font-size: 2.2rem;
   font-weight: 700;
-  color: var(--rh-login-text-color);
+  color: #e0e0e0;
   margin-bottom: 1rem;
   transition: color 0.3s ease;
 }
 
 .rh-login-subtitle {
   font-size: 1.1rem;
-  color: var(--rh-login-subtitle-color);
+  color: #a0a0a0;
   margin-bottom: 2rem;
   line-height: 1.6;
   transition: color 0.3s ease;
 }
 
 .rh-login-form-control {
-  background-color: var(--rh-login-form-control-bg);
-  border: 1px solid var(--rh-login-form-control-border);
-  color: var(--rh-login-text-color);
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #e0e0e0;
   border-radius: 0.5rem;
   padding: 0.75rem 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease,
@@ -2192,14 +2114,14 @@ body {
 }
 
 .rh-login-form-control::placeholder {
-  color: var(--rh-login-subtitle-color);
+  color: #a0a0a0;
 }
 
 .rh-login-form-control:focus {
-  background-color: var(--rh-login-form-control-bg);
-  border-color: var(--rh-login-accent-green);
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: #4caf50;
   box-shadow: 0 0 0 0.25rem rgba(76, 175, 80, 0.25);
-  color: var(--rh-login-text-color);
+  color: #e0e0e0;
 }
 
 .rh-login-button {
@@ -2225,12 +2147,12 @@ body {
 .rh-login-signup-link {
   margin-top: 1.5rem;
   font-size: 0.95rem;
-  color: var(--rh-login-subtitle-color);
+  color: #a0a0a0;
   transition: color 0.3s ease;
 }
 
 .rh-login-signup-link a {
-  color: var(--rh-login-accent-green);
+  color: #4caf50;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
@@ -2238,7 +2160,7 @@ body {
 
 .rh-login-signup-link a:hover {
   text-decoration: underline;
-  color: var(--rh-login-link-hover-color);
+  color: #4caf50;
 }
 
 /* Responsive Adjustments */
@@ -2269,43 +2191,31 @@ body {
 
 /* vehicle list */
 
-/* Global Dark Theme Variables */
-:root {
-  --rh-global-body-bg: #0d1117;
-  --rh-global-text-color: #e0e0e0;
-  --rh-global-card-bg: #1a202c;
-  --rh-global-subtitle-color: #a0a0a0;
-  --rh-global-border-color: rgba(255, 255, 255, 0.1);
-  --rh-global-accent-green: #4caf50;
-  --rh-global-header-bg: #1a202c;
-  --rh-global-header-border: rgba(255, 255, 255, 0.15);
-}
-
 body {
   font-family: "Inter", sans-serif;
-  background-color: var(--rh-global-body-bg);
-  color: var(--rh-global-text-color);
+  background-color: #0d1117;
+  color: #e0e0e0;
   overflow-x: hidden;
 }
 
 /* Header Section */
 .rh-models-header-section {
-  background-color: var(--rh-global-header-bg);
+  background-color: #1a202c;
   padding: 1.5rem 0;
-  border-bottom: 1px solid var(--rh-global-header-border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   text-align: center;
 }
 
 .rh-models-header-section h1 {
   font-size: 1.8rem;
   font-weight: 700;
-  color: var(--rh-global-text-color);
+  color: #e0e0e0;
   margin-bottom: 0.5rem;
 }
 
 .rh-models-header-section p {
   font-size: 0.95rem;
-  color: var(--rh-global-subtitle-color);
+  color: #a0a0a0;
   margin-bottom: 0;
 }
 
@@ -2331,13 +2241,13 @@ body {
 .rh-models-section-header .rh-models-title {
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--rh-global-text-color);
+  color: #e0e0e0;
   margin-bottom: 0.75rem;
 }
 
 .rh-models-section-header .rh-models-subtitle {
   font-size: 1.1rem;
-  color: var(--rh-global-subtitle-color);
+  color: #a0a0a0;
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
@@ -2345,7 +2255,7 @@ body {
 
 /* Car Model Card Styles */
 .rh-model-card {
-  background-color: var(--rh-global-card-bg);
+  background-color: #1a202c;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -2353,7 +2263,7 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--rh-global-border-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .rh-model-card:hover {
@@ -2364,7 +2274,7 @@ body {
 .rh-model-card-image-container {
   position: relative;
   width: 100%;
-  padding-top: 60%; /* 16:9 aspect ratio for image */
+  padding-top: 60%;
   overflow: hidden;
 }
 
@@ -2389,13 +2299,13 @@ body {
 .rh-model-card-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--rh-global-text-color);
+  color: #e0e0e0;
   margin-bottom: 0.5rem;
 }
 
 .rh-model-card-description {
   font-size: 0.95rem;
-  color: var(--rh-global-subtitle-color);
+  color: #a0a0a0;
   margin-bottom: 1rem;
 }
 
@@ -2408,14 +2318,14 @@ body {
 
 .rh-model-features li {
   font-size: 0.9rem;
-  color: var(--rh-global-text-color);
+  color: #e0e0e0;
   margin-bottom: 0.5rem;
   display: flex;
   align-items: flex-start;
 }
 
 .rh-model-features li i {
-  color: var(--rh-global-accent-green);
+  color: #4caf50;
   margin-right: 0.75rem;
   font-size: 0.8rem;
   margin-top: 0.2rem;
@@ -2427,19 +2337,19 @@ body {
   align-items: center;
   margin-top: auto;
   padding-top: 1rem;
-  border-top: 1px solid var(--rh-global-border-color);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .rh-model-price-label {
   font-size: 0.9rem;
-  color: var(--rh-global-subtitle-color);
+  color: #a0a0a0;
   font-weight: 500;
 }
 
 .rh-model-price-value {
   font-size: 1.4rem;
   font-weight: 700;
-  color: var(--rh-global-accent-green);
+  color: #4caf50;
 }
 
 .rh-model-btn-select {
@@ -2557,7 +2467,7 @@ body {
 }
 
 .rh-failed-button {
-  background: linear-gradient(to right, #dc3545, #c82333); /* Red gradient */
+  background: linear-gradient(to right, #dc3545, #c82333);
   border: none;
   color: #fff;
   border-radius: 0.75rem;
@@ -2730,23 +2640,23 @@ body {
 
 .faq-body {
   font-family: "Poppins", sans-serif;
-  background-color: #0d1117; /* Dark background */
-  color: #e6edf3; /* Light text */
+  background-color: #0d1117;
+  color: #e6edf3;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Align to top */
+  align-items: flex-start;
   min-height: 100vh;
   margin: 0;
-  padding: 50px 20px; /* More vertical padding */
+  padding: 50px 20px;
   box-sizing: border-box;
 }
 
 .faq-container {
   width: 100%;
-  max-width: 900px; /* Max width for the FAQ content */
+  max-width: 900px;
   display: flex;
   flex-direction: column;
-  gap: 40px; /* Space between sections */
+  gap: 40px;
 }
 
 /* Header Section */
@@ -2756,11 +2666,11 @@ body {
 }
 
 .faq-header h1 {
-  font-size: 3em; /* Large heading */
+  font-size: 3em;
   font-weight: 700;
   color: #e6edf3;
   margin-bottom: 15px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Subtle glow */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 .faq-header p {
@@ -2773,29 +2683,29 @@ body {
 
 /* Accordion Wrapper */
 .faq-accordion-wrapper {
-  background-color: #161b22; /* Card background */
+  background-color: #161b22;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  overflow: hidden; /* Ensures rounded corners clip content */
+  overflow: hidden;
 }
 
 /* FAQ Item (Question & Answer) */
 .faq-item {
-  border-bottom: 1px solid #30363d; /* Separator between items */
+  border-bottom: 1px solid #30363d;
 }
 
 .faq-item:last-child {
-  border-bottom: none; /* No border for the last item */
+  border-bottom: none;
 }
 
 .faq-question-button {
   background-color: #161b22;
   color: #e6edf3;
   font-family: "Poppins", sans-serif;
-  font-size: 1.15em; /* Slightly larger question text */
+  font-size: 1.15em;
   font-weight: 500;
   width: 100%;
-  padding: 25px 30px; /* Generous padding */
+  padding: 25px 30px;
   border: none;
   text-align: left;
   cursor: pointer;
@@ -2806,17 +2716,17 @@ body {
 }
 
 .faq-question-button:hover {
-  background-color: #1f262e; /* Slightly lighter background on hover */
+  background-color: #1f262e;
 }
 
 .faq-question-button:focus {
   outline: none;
-  box-shadow: inset 0 0 0 2px #28a745; /* Green border on focus */
+  box-shadow: inset 0 0 0 2px #28a745;
 }
 
 .faq-item-icon {
-  font-size: 1.5em; /* Icon size */
-  color: #28a745; /* Green icon */
+  font-size: 1.5em;
+  color: #28a745;
   margin-right: 20px;
   text-shadow: 0 0 5px rgba(40, 167, 69, 0.3);
 }
@@ -2824,29 +2734,28 @@ body {
 .faq-arrow {
   font-size: 0.9em;
   color: #8b949e;
-  transition: transform 0.3s ease; /* Smooth rotation */
+  transition: transform 0.3s ease;
 }
 
 .faq-question-button[aria-expanded="true"] .faq-arrow {
   transform: rotate(180deg);
-  color: #28a745; /* Green arrow when expanded */
+  color: #28a745;
 }
 
 .faq-answer-content {
-  max-height: 0; /* Hidden by default */
+  max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease-out; /* Smooth slide transition */
-  background-color: #1f262e; /* Slightly darker background for answer */
-  border-top: 1px solid #30363d; /* Border above answer */
+  transition: max-height 0.4s ease-out;
+  background-color: #1f262e;
+  border-top: 1px solid #30363d;
 }
 
 .faq-question-button[aria-expanded="true"] + .faq-answer-content {
-  max-height: 500px; /* Or a value large enough to contain all answers */
-  /* This will be overwritten by JS for precise height */
+  max-height: 500px;
 }
 
 .faq-answer-content p {
-  padding: 20px 30px 30px 70px; /* Padding for answer text, aligned with icon */
+  padding: 20px 30px 30px 70px;
   font-size: 1em;
   color: #c9d1d9;
   line-height: 1.7;
@@ -2855,11 +2764,7 @@ body {
 
 /* Still Have Questions Section */
 .faq-still-questions {
-  background: linear-gradient(
-    135deg,
-    #161b22,
-    #0d1117
-  ); /* Subtle gradient background */
+  background: linear-gradient(135deg, #161b22, #0d1117);
   border-radius: 12px;
   padding: 40px;
   text-align: center;
@@ -2867,7 +2772,7 @@ body {
 }
 
 .faq-still-questions-content h2 {
-  font-size: 2em; /* Large heading */
+  font-size: 2em;
   font-weight: 600;
   color: #e6edf3;
   margin-bottom: 15px;
@@ -2883,7 +2788,7 @@ body {
 .faq-buttons-wrapper {
   display: flex;
   justify-content: center;
-  gap: 20px; /* Space between buttons */
+  gap: 20px;
 }
 
 .faq-button {
@@ -2893,24 +2798,20 @@ body {
   font-size: 1.05em;
   font-weight: 600;
   transition: all 0.3s ease;
-  display: inline-flex; /* For icon alignment if needed */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
 .faq-button-primary {
-  background: linear-gradient(135deg, #28a745, #218838); /* Green gradient */
+  background: linear-gradient(135deg, #28a745, #218838);
   color: #fff;
   border: none;
   box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
 }
 
 .faq-button-primary:hover {
-  background: linear-gradient(
-    135deg,
-    #218838,
-    #28a745
-  ); /* Reversed gradient on hover */
+  background: linear-gradient(135deg, #218838, #28a745);
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6);
 }
@@ -2923,12 +2824,12 @@ body {
 .faq-button-secondary {
   background-color: transparent;
   color: #28a745;
-  border: 2px solid #28a745; /* Green border */
+  border: 2px solid #28a745;
   box-shadow: 0 2px 10px rgba(40, 167, 69, 0.2);
 }
 
 .faq-button-secondary:hover {
-  background-color: #28a745; /* Fill with green on hover */
+  background-color: #28a745;
   color: #fff;
   transform: translateY(-3px);
   box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
@@ -2980,13 +2881,13 @@ body {
   }
 
   .faq-buttons-wrapper {
-    flex-direction: column; /* Stack buttons on small screens */
+    flex-direction: column;
     gap: 15px;
   }
 
   .faq-button {
     width: 100%;
-    max-width: 280px; /* Constrain button width */
+    max-width: 280px;
     margin: 0 auto;
   }
 }
@@ -3021,82 +2922,82 @@ body {
 /* Contact */
 
 .contact-form-body {
-  font-family: "Poppins", sans-serif; /* Modern font */
-  background-color: #0d1117; /* Dark background */
-  color: #e6edf3; /* Lighter text for better contrast */
+  font-family: "Poppins", sans-serif;
+  background-color: #0d1117;
+  color: #e6edf3;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 0;
-  padding: 30px; /* Increased padding */
+  padding: 30px;
   box-sizing: border-box;
 }
 
 .contact-form-container {
   display: flex;
-  gap: 30px; /* Increased gap between columns */
-  max-width: 1400px; /* Wider container */
+  gap: 30px;
+  max-width: 1400px;
   width: 100%;
-  align-items: flex-start; /* Align content to the top */
+  align-items: flex-start;
 }
 
 /* Card Styles */
 .contact-form-card {
-  background-color: #161b22; /* Slightly lighter dark background for cards */
-  border-radius: 12px; /* Slightly more rounded corners */
-  padding: 35px; /* Increased padding */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); /* Stronger, softer shadow */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+  background-color: #161b22;
+  border-radius: 12px;
+  padding: 35px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-form-card:hover {
-  transform: translateY(-5px); /* Lift card slightly on hover */
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6); /* More pronounced shadow on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
 }
 
 /* 60/40 Column Layout */
 .contact-form-message-card {
-  flex: 3; /* Takes 60% of available space */
-  min-width: 550px; /* Ensure message card is wide enough */
+  flex: 3;
+  min-width: 550px;
 }
 
 .contact-form-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 30px; /* Gap between sidebar cards */
-  flex: 2; /* Takes 40% of available space */
-  min-width: 380px; /* Minimum width for sidebar section */
+  gap: 30px;
+  flex: 2;
+  min-width: 380px;
 }
 
 /* Card Header Styles */
 .contact-form-card-header {
   display: flex;
   align-items: center;
-  margin-bottom: 30px; /* More space below header */
+  margin-bottom: 30px;
   padding-bottom: 20px;
   border-bottom: 1px solid #30363d;
 }
 
 .contact-form-card-header h2 {
   margin: 0;
-  font-size: 1.8em; /* Slightly larger heading */
-  font-weight: 600; /* Medium bold */
+  font-size: 1.8em;
+  font-weight: 600;
   color: #e6edf3;
 }
 
 .contact-form-icon {
-  font-size: 2em; /* Larger icon */
-  color: #28a745; /* Green icon color */
-  margin-right: 18px; /* More space */
-  text-shadow: 0 0 8px rgba(40, 167, 69, 0.4); /* Subtle green glow on icons */
+  font-size: 2em;
+  color: #28a745;
+  margin-right: 18px;
+  text-shadow: 0 0 8px rgba(40, 167, 69, 0.4);
 }
 
 /* Form Grid Styles */
 .contact-form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 25px; /* Increased gap between form fields */
+  gap: 25px;
 }
 
 .contact-form-input-group {
@@ -3109,8 +3010,8 @@ body {
 }
 
 .contact-form-input-group label {
-  margin-bottom: 10px; /* More space below label */
-  font-size: 1em; /* Slightly larger label font */
+  margin-bottom: 10px;
+  font-size: 1em;
   font-weight: 500;
   color: #8b949e;
 }
@@ -3118,94 +3019,90 @@ body {
 .contact-form-input-group input,
 .contact-form-input-group textarea,
 .contact-form-input-group select {
-  background-color: #0d1117; /* Input background */
-  border: 1px solid #30363d; /* Input border */
-  border-radius: 8px; /* Slightly more rounded */
-  padding: 14px 18px; /* Increased padding */
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 14px 18px;
   color: #e6edf3;
-  font-size: 1.05em; /* Slightly larger input text */
+  font-size: 1.05em;
   outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   appearance: none;
 }
 
 .contact-form-input-group input::placeholder,
 .contact-form-input-group textarea::placeholder {
-  color: #6a737d; /* Slightly lighter placeholder text */
+  color: #6a737d;
 }
 
 .contact-form-input-group input:focus,
 .contact-form-input-group textarea:focus,
 .contact-form-input-group select:focus {
-  border-color: #28a745; /* Green focus border */
-  box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.4); /* Stronger green glow on focus */
-  background-color: #0c1015; /* Slightly darker background on focus */
+  border-color: #28a745;
+  box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.4);
+  background-color: #0c1015;
 }
 
 .contact-form-input-group select {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23e6edf3"><path d="M7 10l5 5 5-5z"/></svg>');
   background-repeat: no-repeat;
   background-position: right 18px center;
-  background-size: 14px; /* Larger arrow */
-  padding-right: 50px; /* More space for arrow */
+  background-size: 14px;
+  padding-right: 50px;
 }
 
 .contact-form-input-group textarea {
   resize: vertical;
-  min-height: 120px; /* Taller textarea */
+  min-height: 120px;
 }
 
 /* Dropdown specific styles */
 .contact-form-input-group select option {
   background-color: #161b22;
   color: #e6edf3;
-  padding: 10px; /* Add padding to options */
+  padding: 10px;
 }
 
 /* Submit Button */
 .contact-form-submit-button {
-  background: linear-gradient(135deg, #28a745, #218838); /* Refined gradient */
+  background: linear-gradient(135deg, #28a745, #218838);
   border: none;
   border-radius: 8px;
-  padding: 16px 30px; /* Larger padding */
+  padding: 16px 30px;
   color: #fff;
-  font-size: 1.2em; /* Larger font */
+  font-size: 1.2em;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease; /* Smooth transition for all properties */
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px; /* Space between icon and text */
-  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4); /* Green glow on button */
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
 }
 
 .contact-form-submit-button:hover {
-  background: linear-gradient(
-    135deg,
-    #218838,
-    #28a745
-  ); /* Reversed gradient on hover */
-  transform: translateY(-3px); /* More pronounced lift */
-  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6); /* Stronger glow on hover */
+  background: linear-gradient(135deg, #218838, #28a745);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6);
 }
 
 .contact-form-submit-button:active {
-  transform: translateY(0); /* Press down effect */
+  transform: translateY(0);
   box-shadow: 0 2px 8px rgba(40, 167, 69, 0.4);
 }
 
 .contact-form-button-icon {
-  font-size: 1.1em; /* Adjust icon size relative to text */
+  font-size: 1.1em;
 }
 
 /* Quick Contact and Business Hours Items */
 .contact-form-contact-item,
 .contact-form-hours-item {
   display: flex;
-  align-items: center; /* Center align for consistency */
-  margin-bottom: 25px; /* More space between items */
-  gap: 20px; /* Increased gap */
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 20px;
 }
 
 .contact-form-contact-item:last-child,
@@ -3214,22 +3111,22 @@ body {
 }
 
 .contact-form-green-icon {
-  font-size: 1.8em; /* Larger icons */
+  font-size: 1.8em;
   color: #28a745;
-  text-shadow: 0 0 6px rgba(40, 167, 69, 0.3); /* Subtle glow */
+  text-shadow: 0 0 6px rgba(40, 167, 69, 0.3);
 }
 
 .contact-form-contact-label,
 .contact-form-hours-label {
-  font-size: 0.95em; /* Slightly larger label */
+  font-size: 0.95em;
   color: #8b949e;
   font-weight: 500;
 }
 
 .contact-form-contact-value {
-  font-weight: 600; /* Bolder value text */
+  font-weight: 600;
   color: #e6edf3;
-  font-size: 1.15em; /* Larger value text */
+  font-size: 1.15em;
 }
 
 .contact-form-email-link {
@@ -3240,12 +3137,12 @@ body {
 }
 
 .contact-form-email-link:hover {
-  color: #4cd964; /* Brighter green on hover */
+  color: #4cd964;
   text-decoration: underline;
 }
 
 .contact-form-contact-subtext {
-  font-size: 0.85em; /* Slightly larger subtext */
+  font-size: 0.85em;
   color: #6a737d;
 }
 
@@ -3253,7 +3150,7 @@ body {
   font-weight: 600;
   color: #e6edf3;
   margin-left: auto;
-  font-size: 1.15em; /* Larger value text */
+  font-size: 1.15em;
 }
 
 .contact-form-green-text {
@@ -3262,31 +3159,30 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1050px) {
-  /* Adjust breakpoint for 60/40 to stack */
   .contact-form-container {
     flex-direction: column;
-    align-items: center; /* Center items when stacked */
+    align-items: center;
   }
 
   .contact-form-message-card,
   .contact-form-sidebar {
     min-width: unset;
     width: 100%;
-    max-width: 700px; /* Constrain width for better readability on large screens when stacked */
+    max-width: 700px;
   }
 }
 
 @media (max-width: 650px) {
   .contact-form-body {
-    padding: 15px; /* Reduce overall padding */
+    padding: 15px;
   }
 
   .contact-form-card {
-    padding: 25px; /* Reduce card padding */
+    padding: 25px;
   }
 
   .contact-form-card-header h2 {
-    font-size: 1.5em; /* Smaller heading on small screens */
+    font-size: 1.5em;
   }
 
   .contact-form-icon {
@@ -3294,7 +3190,7 @@ body {
   }
 
   .contact-form-grid {
-    grid-template-columns: 1fr; /* Stack form fields vertically */
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
@@ -3305,7 +3201,7 @@ body {
 
   .contact-form-contact-item,
   .contact-form-hours-item {
-    gap: 15px; /* Reduce gap in contact items */
+    gap: 15px;
     margin-bottom: 20px;
   }
 

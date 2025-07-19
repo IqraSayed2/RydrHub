@@ -11,6 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 from razorpay.errors import SignatureVerificationError
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.utils.timezone import make_aware
 
 # Create your views here.
 
@@ -87,8 +88,21 @@ def book_car(request, vehicle_id):
         try:
             pickup_datetime = datetime.strptime(pickup_str, "%Y-%m-%dT%H:%M")
             return_datetime = datetime.strptime(return_str, "%Y-%m-%dT%H:%M")
+
+            pickup_datetime = make_aware(pickup_datetime)
+            return_datetime = make_aware(return_datetime)
+
         except ValueError:
             messages.error(request, "Invalid date/time format. Please use YYYY-MM-DD HH:MM.")
+            return redirect("rental_detail", category_slug=vehicle.category.category_slug, vehicle_id=vehicle.id)
+        
+        now = timezone.now()
+        if pickup_datetime < now:
+            messages.error(request, "Pickup date and time cannot be in the past.")
+            return redirect("rental_detail", category_slug=vehicle.category.category_slug, vehicle_id=vehicle.id)
+
+        if return_datetime <= pickup_datetime:
+            messages.error(request, "Return date/time must be after pickup date/time.")
             return redirect("rental_detail", category_slug=vehicle.category.category_slug, vehicle_id=vehicle.id)
 
         duration = return_datetime - pickup_datetime
@@ -279,12 +293,24 @@ def cancel_booking(request, booking_id):
 def my_bookings_view(request):
     all_bookings = RentalBooking.objects.filter(user=request.user).order_by('-booking_date')
     
-    current_bookings = all_bookings.filter(status__in=['pending', 'confirmed', 'upcoming', 'active'])
-    historical_bookings = all_bookings.filter(status__in=['completed', 'cancelled'])
-    
+    now = timezone.now()
+
     for booking in all_bookings:
+        if booking.status == 'Confirmed' and booking.pickup_datetime > now:
+            booking.status = 'Upcoming'
+            booking.save()
+        elif booking.status == 'Upcoming' and booking.pickup_datetime <= now < booking.return_datetime:
+            booking.status = 'Active'
+            booking.save()
+        elif booking.status == 'Active' and now >= booking.return_datetime:
+            booking.status = 'Completed'
+            booking.save()
+
         duration = booking.return_datetime - booking.pickup_datetime
         booking.duration_days = max(1, duration.days + (1 if duration.seconds > 0 else 0))
+
+    current_bookings = all_bookings.filter(status__in=['pending', 'confirmed', 'upcoming', 'active'])
+    historical_bookings = all_bookings.filter(status__in=['completed', 'cancelled'])
     
     context = {
         'current_bookings': current_bookings,

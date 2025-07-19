@@ -77,7 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
 //------------------------------------
 
 function switchTab(tabName) {
@@ -90,3 +89,15 @@ function switchTab(tabName) {
   document.getElementById(tabName).classList.add("active");
   event.target.classList.add("active");
 }
+
+//---------------------------------------
+
+window.onload = function () {
+  const now = new Date();
+  now.setMinutes(now.getMinutes() - now.getTimezoneOffset()); // Adjust for local time
+
+  const minDateTime = now.toISOString().slice(0, 16); // "YYYY-MM-DDTHH:MM"
+
+  document.getElementById("pickupDateTime").min = minDateTime;
+  document.getElementById("returnDateTime").min = minDateTime;
+};
