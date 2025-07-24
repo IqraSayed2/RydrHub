@@ -767,6 +767,11 @@
   transition: color 0.3s ease;
 }
 
+.footer-links li a {
+  color: #a0a0a0 !important;
+  text-decoration: none !important;
+}
+
 .footer-bottom .footer-links-bottom a:hover {
   color: #4caf50 !important;
 }

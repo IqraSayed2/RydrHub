@@ -294,21 +294,20 @@ def my_bookings_view(request):
     all_bookings = RentalBooking.objects.filter(user=request.user).order_by('-booking_date')
     
     now = timezone.now()
-
     for booking in all_bookings:
         if booking.status == 'Confirmed' and booking.pickup_datetime > now:
             booking.status = 'Upcoming'
             booking.save()
-        elif booking.status == 'Upcoming' and booking.pickup_datetime <= now < booking.return_datetime:
+        elif booking.status in ['Confirmed',"Active","Upcoming"] and booking.pickup_datetime <= now and now < booking.return_datetime:
             booking.status = 'Active'
             booking.save()
-        elif booking.status == 'Active' and now >= booking.return_datetime:
+        elif booking.status in ['Confirmed',"Active","Upcoming"] and now >= booking.return_datetime:
             booking.status = 'Completed'
             booking.save()
 
         duration = booking.return_datetime - booking.pickup_datetime
-        booking.duration_days = max(1, duration.days + (1 if duration.seconds > 0 else 0))
-
+        # booking.duration_days = max(1, duration.days + (1 if duration.seconds > 0 else 0))
+        booking.save()
     current_bookings = all_bookings.filter(status__in=['pending', 'confirmed', 'upcoming', 'active'])
     historical_bookings = all_bookings.filter(status__in=['completed', 'cancelled'])
     
@@ -317,6 +316,7 @@ def my_bookings_view(request):
         'historical_bookings': historical_bookings,
         'current_count': current_bookings.count(),
         'history_count': historical_bookings.count(),
+
     }
     
     return render(request, 'my_bookings.html', context)

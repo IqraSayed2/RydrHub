@@ -49,9 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
   faqButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const isExpanded = button.getAttribute("aria-expanded") === "true";
-      const answer = button.nextElementSibling; // The answer content div
+      const answer = button.nextElementSibling; 
 
-      // Close all other open FAQs
       faqButtons.forEach((otherButton) => {
         if (
           otherButton !== button &&
@@ -64,13 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      // Toggle current FAQ
       button.setAttribute("aria-expanded", !isExpanded);
       if (isExpanded) {
         answer.style.maxHeight = null;
         button.querySelector(".faq-arrow").style.transform = "rotate(0deg)";
       } else {
-        answer.style.maxHeight = answer.scrollHeight + "px"; // Set to actual height
+        answer.style.maxHeight = answer.scrollHeight + "px"; 
         button.querySelector(".faq-arrow").style.transform = "rotate(180deg)";
       }
     });
@@ -92,12 +90,24 @@ function switchTab(tabName) {
 
 //---------------------------------------
 
-window.onload = function () {
+window.addEventListener("DOMContentLoaded", () => {
   const now = new Date();
-  now.setMinutes(now.getMinutes() - now.getTimezoneOffset()); // Adjust for local time
+  now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
 
-  const minDateTime = now.toISOString().slice(0, 16); // "YYYY-MM-DDTHH:MM"
+  const minDateTime = now.toISOString().slice(0, 16);
 
-  document.getElementById("pickupDateTime").min = minDateTime;
-  document.getElementById("returnDateTime").min = minDateTime;
-};
+  const pickup = document.getElementById("pickupDateTime");
+  const dropoff = document.getElementById("returnDateTime");
+
+  if (pickup) pickup.min = minDateTime;
+  if (dropoff) dropoff.min = minDateTime;
+
+  if (pickup && dropoff) {
+    pickup.addEventListener("change", () => {
+      dropoff.min = pickup.value;
+      if (dropoff.value < pickup.value) {
+        dropoff.value = pickup.value;
+      }
+    });
+  }
+});

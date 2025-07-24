@@ -47,13 +47,20 @@ class RentalBooking(models.Model):
     vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
     pickup_location = models.CharField(max_length=255)
     return_location = models.CharField(max_length=255)
-    pickup_datetime = models.DateTimeField()
-    return_datetime = models.DateTimeField()
+    pickup_datetime = models.DateTimeField()  # 
+    return_datetime = models.DateTimeField()  #
     total_cost = models.DecimalField(max_digits=10, decimal_places=2)
     booking_date = models.DateTimeField(auto_now_add=True)
     is_paid = models.BooleanField(default=False)
     payment_id = models.CharField(max_length=255, blank=True, null=True) 
     cancellation_date = models.DateTimeField(blank=True, null=True) 
+    @property
+    def duration_days(self):
+        """Returns the duration of the rental in full days (rounded up)."""
+        if self.return_datetime and self.pickup_datetime:
+            duration = self.return_datetime - self.pickup_datetime
+            return duration.days + (1 if duration.seconds > 0 else 0)
+        return 0
     BOOKING_STATUS_CHOICES = [
         ('Pending', 'Pending'),
         ('Upcoming', 'Upcoming'), 
@@ -69,7 +76,3 @@ class RentalBooking(models.Model):
 
     def __str__(self):
         return f"Booking #{self.id} - {self.vehicle.model_name} by {self.user.username}"
-    
-
-
-    

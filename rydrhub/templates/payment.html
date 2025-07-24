@@ -37,7 +37,7 @@
                         <div class="rh-trip-icon-box"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="rh-trip-location-content">
                             <h5>{{ booking.return_location }}</h5>
-                            <p>Usually takes around {{ estimated_time }}</p>
+                            <p>Return: {{ booking.return_datetime|date:"j M Y H:i A" }}</p>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                         <div class="rh-trip-contact-info">
                             <strong>Booking Details will be sent to:</strong> <br>
                             {{ booking.user.first_name }} {{ booking.user.last_name }}<br>
-                            <span>{{ booking.user.email }}, +91{{ booking.traveler_phone }}</span>
+                            <span>{{ booking.traveler_email }}, +91{{ booking.traveler_phone }}</span>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                         <div class="rh-trip-included-benefits">
                             <h5>Included Benefits</h5>
                             <ul>
-                                <li><i class="fas fa-check-circle"></i> Free Cancellation <br> Till {{ booking.pickup_datetime|date:"j M Y, H:i A" }}</li>
+                                <li><i class="fas fa-check-circle"></i> Free Cancellation <br> Till 1 hour before {{ booking.pickup_datetime|date:"j M Y, H:i A" }}</li>
                                 <li><i class="fas fa-check-circle"></i> 24/7 Roadside Assistance</li>
                             </ul>
                         </div>

@@ -192,14 +192,14 @@
 
                 <div class="row mb-4">
                   <div class="col-md-6">
-                    <label for="pickupDatetime" class="form-label"
+                    <label for="pickupDateTime" class="form-label"
                       >Pickup Date & Time</label
                     >
                     <div class="input-group">
                       <input
                         type="datetime-local"
                         class="form-control form-control-dark"
-                        id="pickupDatetime"
+                        id="pickupDateTime"
                         name="pickup_datetime"
                         style="color: #a0a0a0; opacity: 1"
                         required
@@ -207,14 +207,14 @@
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <label for="returnDatetime" class="form-label"
+                    <label for="returnDateTime" class="form-label"
                       >Return Date & Time</label
                     >
                     <div class="input-group">
                       <input
                         type="datetime-local"
                         class="form-control form-control-dark"
-                        id="returnDatetime"
+                        id="returnDateTime"
                         name="return_datetime"
                         style="color: #a0a0a0; opacity: 1"
                         required
@@ -513,7 +513,6 @@
               <li><a href="#">Services</a></li>
               <li><a href="#">Features</a></li>
               <li><a href="#">How it Works</a></li>
-              <li><a href="#">Pricing</a></li>
               <li><a href="#">About Us</a></li>
               <li><a href="#">Careers</a></li>
             </ul>
@@ -525,7 +524,6 @@
               <li><a href="#">Safety Guidelines</a></li>
               <li><a href="#">Terms of Service</a></li>
               <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Driver Application</a></li>
               <li><a href="#">Contact Support</a></li>
             </ul>
           </div>
@@ -591,5 +589,29 @@
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+
+    const minDateTime = now.toISOString().slice(0, 16);
+
+    const pickup = document.getElementById("pickupDateTime");
+    const dropoff = document.getElementById("returnDateTime");
+
+    if (pickup) pickup.min = minDateTime;
+    if (dropoff) dropoff.min = minDateTime;
+
+    if (pickup && dropoff) {
+      pickup.addEventListener("change", () => {
+        dropoff.min = pickup.value;
+        if (dropoff.value < pickup.value) {
+          dropoff.value = pickup.value;
+        }
+      });
+    }
+  });
+</script>
   </body>
 </html>
