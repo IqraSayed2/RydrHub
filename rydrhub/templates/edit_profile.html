@@ -1,0 +1,107 @@
+{% extends "base.html" %} 
+{% block title %}Profile{% endblock %} 
+{% block content %}
+
+<div class="profile-body">
+  <div class="profile-container">
+    <div class="profile-header">
+      <div>
+        <h2 class="profileh2">Edit Profile</h2>
+        <p class="profile-manage-info">Update your personal information</p>
+      </div>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="profile-form-group">
+        <label for="id_first_name">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+            />
+          </svg>
+          First Name:
+        </label>
+        <input
+          type="text"
+          id="id_first_name"
+          name="first_name"
+          value="{{ user.first_name }}"
+          class="profile-input-field"
+        />
+      </div>
+
+      <div class="profile-form-group">
+        <label for="id_last_name">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+            />
+          </svg>
+          Last Name:
+        </label>
+        <input
+          type="text"
+          id="id_last_name"
+          name="last_name"
+          value="{{ user.last_name }}"
+          class="profile-input-field"
+        />
+      </div>
+
+      <div class="profile-form-group">
+        <label for="id_phone">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-telephone-fill"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"
+            />
+          </svg>
+          Phone:
+        </label>
+        <input
+          type="text"
+          id="id_phone"
+          name="phone"
+          value="{{ profile.phone }}"
+          class="profile-input-field"
+        />
+      </div>
+
+      <div class="profile-form-group">
+        <label for="id_profile_picture">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path
+              d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-1.96-2.36L6 17h12l-4.04-5.71z"
+            />
+          </svg>
+          Profile Picture:
+        </label>
+        {% if profile.profile_picture %}
+        <img
+          src="{{ profile.profile_picture.url }}"
+          alt="Current Profile Picture"
+        />
+        {% endif %}
+        <input
+          type="file"
+          id="id_profile_picture"
+          name="profile_picture"
+          class="profile-input-field"
+        />
+      </div>
+
+      <button type="submit" class="profile-save-button">Save</button>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

@@ -29,7 +29,10 @@ urlpatterns = [
     path('', include('main_app.urls')),
     path('faqs',views.faqs,name="faqs"),
     path('contact',views.contact,name="contact"),
-    path('my-bookings',views.my_bookings,name="my-bookings")
+    path('my-bookings',views.my_bookings,name="my-bookings"),
+    path('profile/', views.view_profile, name='profile'),
+    path('profile/edit/', views.edit_profile, name='edit_profile'),
+    path('about/',views.about,name="about"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

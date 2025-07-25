@@ -65,10 +65,13 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'my_bookings' %}">My Bookings</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About Us</a>
+            </li>
           </ul>
           <div class="d-flex">
             {% if request.user.is_authenticated %}
-            <a class="btn btn-outline-success me-2" href="#" role="button">
+            <a class="btn btn-outline-success me-2" href="{% url 'profile' %}" role="button">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="19"
@@ -250,7 +253,7 @@
     </section>
 
     <!-- Premium Features Section -->
-    <section class="section-container-features">
+    <section class="section-container-features" id="features">
       <div class="container">
         <div class="text-center mb-5">
           <span class="tag-button">
@@ -461,9 +464,9 @@
             <div class="col-6 col-md-3">
               <div class="stat-item">
                 <div class="stat-icon star">
-                  <i class="fas fa-star"></i> 4.9
+                  <i class="fas fa-star"></i> 
                 </div>
-                <div class="stat-value"></div>
+                <div class="stat-value">4.9</div>
                 <div class="stat-label">Average Rating</div>
               </div>
             </div>
@@ -486,7 +489,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 mb-4 mb-lg-0">
-            <a class="footer-brand" href="#">
+            <a class="footer-brand" href="{% url 'home' %}">
               <img
                 src="https://placehold.co/35x35/4CAF50/FFFFFF?text=R"
                 alt="RydrHub Logo"
@@ -510,21 +513,21 @@
           <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
             <h5 class="footer-links-title">Quick Links</h5>
             <ul class="footer-links">
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Features</a></li>
-              <li><a href="#">How it Works</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Careers</a></li>
+              <li><a href="{% url 'service' %}">Services</a></li>
+              <li><a href="{% url 'home' %}#features">Features</a></li>
+              <li><a href="{% url 'home' %}#working">How it Works</a></li>
+              <li><a href="{% url 'about' %}">About Us</a></li>
+              <li><a href="{% url 'faqs' %}">Queries</a></li>
             </ul>
           </div>
           <div class="col-lg-2 col-md-4 mb-4 mb-lg-0">
             <h5 class="footer-links-title">Support</h5>
             <ul class="footer-links">
-              <li><a href="#">Help Center</a></li>
+              <li><a href="{% url 'contact' %}">Help Center</a></li>
               <li><a href="#">Safety Guidelines</a></li>
               <li><a href="#">Terms of Service</a></li>
               <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Contact Support</a></li>
+              <li><a href="{% url 'contact' %}">Contact Support</a></li>
             </ul>
           </div>
           <div class="col-lg-4">
@@ -606,9 +609,6 @@
     if (pickup && dropoff) {
       pickup.addEventListener("change", () => {
         dropoff.min = pickup.value;
-        if (dropoff.value < pickup.value) {
-          dropoff.value = pickup.value;
-        }
       });
     }
   });

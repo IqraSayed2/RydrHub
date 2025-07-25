@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Vehicle, RentalBooking
+from .models import Category, Vehicle, RentalBooking, UserProfile
 
 # Register your models here.
 
@@ -48,9 +48,13 @@ class RentalBookingAdmin(admin.ModelAdmin):
     )
 
 
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ['user', 'phone', 'profile_picture']
+    
 
 admin.site.site_header = "RydyHub"
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Vehicle, VehicleAdmin)
 admin.site.register(RentalBooking, RentalBookingAdmin)
+admin.site.register(UserProfile, UserProfileAdmin)

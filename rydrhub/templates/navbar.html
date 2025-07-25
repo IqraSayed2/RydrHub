@@ -38,10 +38,13 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'my_bookings' %}">My Bookings</a>
           </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About Us</a>
+            </li>
         </ul>
         <div class="d-flex">
         {% if request.user.is_authenticated %}
-        <a class="btn btn-outline-success me-2" href="#" role="button"> 
+        <a class="btn btn-outline-success me-2" href="{% url 'profile' %}" role="button"> 
           <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="19"

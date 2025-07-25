@@ -76,3 +76,12 @@ class RentalBooking(models.Model):
 
     def __str__(self):
         return f"Booking #{self.id} - {self.vehicle.model_name} by {self.user.username}"
+    
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    phone = models.CharField(max_length=15, blank=True)
+    profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
+
+    def __str__(self):
+        return self.user.username
